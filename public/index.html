@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>JLPT Quiz App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <button id="home-icon" class="home-icon" aria-label="Go to Home">🏠</button>
+                <h1>JLPT Quiz</h1>
+            </div>
+            <div id="score-display" class="hidden">
+                <span id="current-score">0</span> / <span id="total-questions">0</span>
+            </div>
+        </header>
+
+        <main>
+            <div id="start-screen" class="screen">
+                <h2>Select Quiz Options</h2>
+                <div class="form-group">
+                    <label class="form-label">JLPT Level:</label>
+                    <div class="radio-group">
+                        <label class="radio-label selected">
+                            <input type="radio" name="level" value="all" checked>
+                            <span>All</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="level" value="N5">
+                            <span>N5</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="level" value="N4">
+                            <span>N4</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="level" value="N3">
+                            <span>N3</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="level" value="N2">
+                            <span>N2</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="level" value="N1">
+                            <span>N1</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Question Type:</label>
+                    <div class="radio-group">
+                        <label class="radio-label selected">
+                            <input type="radio" name="type" value="all" checked>
+                            <span>All</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="grammar">
+                            <span>Grammar</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="vocabulary">
+                            <span>Vocab</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="reading">
+                            <span>Reading</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Number of Questions:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="limit" value="5">
+                            <span>5</span>
+                        </label>
+                        <label class="radio-label selected">
+                            <input type="radio" name="limit" value="10" checked>
+                            <span>10</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="limit" value="20">
+                            <span>20</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="limit" value="50">
+                            <span>50</span>
+                        </label>
+                    </div>
+                </div>
+                <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+            </div>
+
+            <div id="quiz-screen" class="screen hidden">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <div class="question-container">
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options-container" id="options-container"></div>
+                </div>
+                <div class="controls quiz-footer">
+                    <button id="next-btn" class="btn btn-next hidden">Next Question</button>
+                </div>
+            </div>
+
+            <div id="result-screen" class="screen hidden">
+                <h2>Quiz Complete!</h2>
+                <div class="result-score">
+                    Your score: <span id="final-score">0</span> / <span id="total-questions-final">0</span>
+                    (<span id="percentage">0</span>%)
+                </div>
+                <div id="result-message"></div>
+                <button id="restart-btn" class="btn btn-primary">Take Another Quiz</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

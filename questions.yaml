@@ -1,0 +1,338 @@
+# JLPT Quiz Questions
+# Format:
+# - level: N1-N5 (JLPT level)
+#   type: grammar/vocabulary/reading
+#   question: The question text
+#   options: List of possible answers (2-4 options)
+#   answer: Index of the correct answer (0-based)
+
+# N5 Questions (kept as reference)
+- level: N5
+  type: vocabulary
+  title: "Japanese Noun"
+  question: "What is the meaning of '本'?"
+  options:
+    - "Pen"
+    - "Book"
+    - "Desk"
+    - "Chair"
+  answer: 1
+  explanation: "'本' (ほん, hon) means 'book' in Japanese. It can also mean 'origin' or 'main', but in this context, it means 'book'."
+
+# N3 Grammar Questions
+## ～ばかりでなく (not only... but also)
+- level: N3
+  type: grammar
+  title: "Not only... but also"
+  question: "彼は英語＿＿＿、日本語も話せます。"
+  options:
+    - "ばかりで"
+    - "ばかりでなく"
+    - "ばかりに"
+    - "ばかりか"
+  answer: 1
+  explanation: "'～ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only English, but also Japanese.'"
+
+- level: N3
+  type: grammar
+  title: "Definitely Not"
+  question: "スイッチをいれたんだから、赤いランプがつかない＿＿＿。へんだなあ。"
+  options:
+    - "わけにはいかない"
+    - "わけではない"
+    - "わけがない"
+  answer: 2
+  explanation: "'～ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only English, but also Japanese.'"
+
+- level: N3
+  type: grammar
+  title: "Not only... but also"
+  question: "このレストランは味＿＿＿、サービスもとても良いです。"
+  options:
+    - "ばかりでなく"
+    - "だけでなく"
+    - "しかなく"
+    - "よりなく"
+  answer: 1
+  explanation: "'だけでなく' means 'not only... but also'. The sentence means 'This restaurant not only has good taste, but also very good service.'"
+
+- level: N3
+  type: grammar
+  title: "Not only... but also"
+  question: "彼女は歌＿＿＿、ダンスも得意です。"
+  options:
+    - "ばかりでなく"
+    - "だけでなく"
+    - "しかなく"
+    - "よりなく"
+  answer: 1
+  explanation: "'だけでなく' means 'not only... but also'. The sentence means 'She is not only good at singing, but also at dancing.'"
+
+## ～どころか (far from, not to mention)
+- level: N3
+  type: grammar
+  title: "Far from..."
+  question: "風邪はよくなる＿＿＿、もっと悪くなった。"
+  options:
+    - "どころか"
+    - "ところで"
+    - "だけで"
+    - "しかも"
+  answer: 0
+  explanation: "'～どころか' means 'far from...'. The meaning is 'Far from getting better, my cold got even worse.'"
+
+- level: N3
+  type: grammar
+  title: "Far from..."
+  question: "彼は日本語を話せる＿＿＿、ひらがなも読めません。"
+  options:
+    - "どころか"
+    - "ところで"
+    - "だけで"
+    - "しかも"
+  answer: 0
+  explanation: "'どころか' means 'far from...'. The sentence means 'Far from being able to speak Japanese, he can't even read hiragana.'"
+
+- level: N3
+  type: grammar
+  title: "Far from..."
+  question: "忙しくて旅行＿＿＿、休みも取れない。"
+  options:
+    - "どころか"
+    - "ところで"
+    - "だけで"
+    - "しかも"
+  answer: 0
+  explanation: "'どころか' means 'far from...'. The sentence means 'I'm so busy that I can't even take a break, let alone go on a trip.'"
+
+## ～にもかかわらず (in spite of, despite)
+- level: N3
+  type: grammar
+  title: "In spite of, despite"
+  question: "大雨＿＿＿、サッカーの試合は続けられた。"
+  options:
+    - "にもかかわらず"
+    - "にかかわらず"
+    - "なのに"
+    - "だけど"
+  answer: 0
+  explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Despite the heavy rain, the soccer match continued.'"
+
+- level: N3
+  type: grammar
+  title: "In spite of, despite"
+  question: "彼は病気＿＿＿、会社に行きました。"
+  options:
+    - "にもかかわらず"
+    - "にかかわらず"
+    - "なのに"
+    - "だけど"
+  answer: 0
+  explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Despite being sick, he went to work.'"
+
+- level: N3
+  type: grammar
+  title: "In spite of, despite"
+  question: "約束した＿＿＿、彼は来なかった。"
+  options:
+    - "にもかかわらず"
+    - "にかかわらず"
+    - "なのに"
+    - "だけど"
+  answer: 0
+  explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Even though he promised, he didn't come.'"
+
+## ～ば～ほど (the more... the more...)
+- level: N3
+  type: grammar
+  title: "The more... the more..."
+  question: "勉強すれば＿＿＿、日本語が上手になります。"
+  options:
+    - "するほど"
+    - "したほど"
+    - "するなら"
+    - "したら"
+  answer: 0
+  explanation: "'Vば Vほど' means 'the more you do, the more...'. Here, '勉強すればするほど' means 'The more you study, the better your Japanese will get.'"
+
+- level: N3
+  type: grammar
+  title: "The more... the more..."
+  question: "この歌は聞けば聞く＿＿＿好きになる。"
+  options:
+    - "ほど"
+    - "だけ"
+    - "くらい"
+    - "まで"
+  answer: 0
+  explanation: "'Vば Vほど' means 'the more you do, the more...'. Here, '聞けば聞くほど' means 'The more you listen to this song, the more you like it.'"
+
+- level: N3
+  type: grammar
+  title: "The more... the more..."
+  question: "説明は簡単＿＿＿簡単なほどいい。"
+  options:
+    - "なら"
+    - "ほど"
+    - "だけ"
+    - "くらい"
+  answer: 1
+  explanation: "'AほどB' means 'the more A, the more B'. Here, '簡単ほど簡単なほど' means 'The simpler the explanation, the better.'"
+
+## ～さえ～ば (if only, as long as)
+- level: N3
+  type: grammar
+  title: "If only, as long as"
+  question: "説明書を読＿＿＿わかります。"
+  options:
+    - "さえ"
+    - "だけ"
+    - "こそ"
+    - "でも"
+  answer: 0
+  explanation: "'～さえ～ば' means 'if only...'. Here, '説明書を読みさえすれば' means 'If you just read the manual, you'll understand.'"
+
+- level: N3
+  type: grammar
+  title: "If only, as long as"
+  question: "あなたがそばにい＿＿＿、私は幸せです。"
+  options:
+    - "さえ"
+    - "だけ"
+    - "こそ"
+    - "でも"
+  answer: 0
+  explanation: "'～さえ～ば' means 'if only...'. Here, 'あなたがそばにいさえすれば' means 'If only you are by my side, I am happy.'"
+
+- level: N3
+  type: grammar
+  title: "If only, as long as"
+  question: "お金＿＿＿あれば、旅行に行けるのに。"
+  options:
+    - "さえ"
+    - "だけ"
+    - "こそ"
+    - "でも"
+  answer: 0
+  explanation: "'～さえ～ば' means 'if only...'. Here, 'お金さえあれば' means 'If only I had money, I could go on a trip.'"
+
+# N4 Level Questions
+- level: N4
+  type: grammar
+  title: "Potential Form"
+  question: "私は日本語の新聞を読む＿＿＿。"
+  options:
+    - "ことができる"
+    - "ことができます"
+    - "ことにする"
+    - "ことにします"
+  answer: 1
+  explanation: "'ことができます' is the polite form of the potential expression 'can do'. The sentence means 'I can read Japanese newspapers.'"
+
+- level: N4
+  type: grammar
+  title: "Giving and Receiving"
+  question: "先生は私に本を＿＿＿。"
+  options:
+    - "あげました"
+    - "くれました"
+    - "もらいました"
+    - "かしました"
+  answer: 1
+  explanation: "'くれました' is used when someone gives something to the speaker. Here, 'The teacher gave me a book.'"
+
+- level: N4
+  type: grammar
+  title: "Conditional Form"
+  question: "雨が降ったら、傘を＿＿＿。"
+  options:
+    - "持っていく"
+    - "持っていった"
+    - "持っていって"
+    - "持っていきます"
+  answer: 0
+  explanation: "'たら' is a conditional form meaning 'if/when'. The plain form follows it. The sentence means 'If it rains, I will take an umbrella.'"
+
+- level: N4
+  type: vocabulary
+  title: "Time Expressions"
+  question: "会議は３時間＿＿＿続きました。"
+  options:
+    - "ぐらい"
+    - "ほど"
+    - "くらい"
+    - "ばかり"
+  answer: 3
+  explanation: "'ばかり' means 'about/approximately' with time expressions. The sentence means 'The meeting continued for about 3 hours.'"
+
+- level: N4
+  type: vocabulary
+  title: "Adjectives"
+  question: "この問題は＿＿＿ですね。"
+  options:
+    - "難しそう"
+    - "難しかった"
+    - "難しくない"
+    - "難しいそう"
+  answer: 0
+  explanation: "'～そう' attached to the stem of an i-adjective indicates appearance or likelihood. The sentence means 'This problem looks difficult.'"
+
+- level: N4
+  type: grammar
+  title: "Purpose Expression"
+  question: "日本語を勉強する＿＿＿、日本に行きます。"
+  options:
+    - "ために"
+    - "ように"
+    - "ことに"
+    - "のに"
+  answer: 0
+  explanation: "'ために' expresses purpose. The sentence means 'I will go to Japan in order to study Japanese.'"
+
+- level: N4
+  type: vocabulary
+  title: "Counters"
+  question: "テーブルの上に本が３＿＿＿あります。"
+  options:
+    - "冊"
+    - "枚"
+    - "個"
+    - "台"
+  answer: 0
+  explanation: "'冊' (さつ) is the counter for books. The sentence means 'There are 3 books on the table.'"
+
+- level: N4
+  type: grammar
+  title: "Comparison"
+  question: "東京は大阪＿＿＿大きいです。"
+  options:
+    - "より"
+    - "から"
+    - "まで"
+    - "ほど"
+  answer: 0
+  explanation: "'より' is used for comparison, meaning 'than'. The sentence means 'Tokyo is bigger than Osaka.'"
+
+- level: N4
+  type: vocabulary
+  title: "Adverbs"
+  question: "彼女は＿＿＿歌を歌います。"
+  options:
+    - "上手に"
+    - "上手"
+    - "上手な"
+    - "上手の"
+  answer: 0
+  explanation: "'上手に' is the adverbial form of '上手' (skilled). The sentence means 'She sings skillfully.'"
+
+- level: N4
+  type: grammar
+  title: "Expressing Experience"
+  question: "富士山に登った＿＿＿がありますか。"
+  options:
+    - "こと"
+    - "の"
+    - "もの"
+    - "ところ"
+  answer: 0
+  explanation: "'ことがある' expresses past experience. The question means 'Have you ever climbed Mt. Fuji?'"
