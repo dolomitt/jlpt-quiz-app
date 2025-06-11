@@ -3,6 +3,20 @@ const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
 const bodyParser = require('body-parser');
+const { execSync } = require('child_process');
+
+// Load version information from version.json if it exists, otherwise use defaults
+let versionInfo = { version: '1.0.0', gitCommit: 'unknown', buildDate: new Date().toISOString() };
+try {
+  if (fs.existsSync(path.join(__dirname, 'version.json'))) {
+    versionInfo = JSON.parse(fs.readFileSync(path.join(__dirname, 'version.json'), 'utf8'));
+    console.log('Loaded version information:', versionInfo);
+  } else {
+    console.log('No version.json file found, using defaults');
+  }
+} catch (error) {
+  console.error('Error loading version information:', error);
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -41,6 +55,13 @@ app.get('/api/questions', (req, res) => {
   
   // Shuffle all matching questions first
   questions = questions.sort(() => Math.random() - 0.5);
+  
+  // Check if any questions match the filters
+  if (questions.length === 0) {
+    return res.status(404).json({ 
+      error: 'No questions found matching the selected filters. Please try different criteria.' 
+    });
+  }
   
   // Apply limit if specified
   if (limit) {
@@ -97,11 +118,6 @@ app.post('/api/check-answer', (req, res) => {
   
   const isCorrect = question.answer === answerIndex;
   res.json({ isCorrect, correctAnswer: question.answer });
-});
-
-// Serve the main HTML file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // API endpoint to get quiz history
@@ -170,6 +186,16 @@ app.delete('/api/history/clear', (req, res) => {
     console.error('Error clearing history:', error);
     res.status(500).json({ error: 'Failed to clear quiz history' });
   }
+});
+
+// API endpoint to get version information
+app.get('/api/version', (req, res) => {
+  res.json(versionInfo);
+});
+
+// Serve the main HTML file (catch-all route must be last)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {

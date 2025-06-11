@@ -50,6 +50,32 @@ header {
     position: relative;
 }
 
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.version-info {
+    font-size: 0.7rem;
+    color: #777;
+    margin-top: -5px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: center;
+}
+
+.commit-hash {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
 .home-icon {
     position: absolute;
     left: 0;
@@ -331,18 +357,23 @@ label {
 }
 
 .clear-history-btn {
-    background-color: transparent;
-    border: none;
-    color: var(--text-secondary);
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    color: #666;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 4px;
     transition: all 0.2s ease;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .clear-history-btn:hover {
     color: #d9534f;
     background-color: rgba(217, 83, 79, 0.1);
+    border-color: #d9534f;
 }
 
 .history-list {
@@ -392,6 +423,8 @@ label {
     text-align: center;
     padding: 1rem;
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 600px) {

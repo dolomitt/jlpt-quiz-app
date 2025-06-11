@@ -13,6 +13,8 @@ yarn.lock
 .env.test.local
 .env.production.local
 
+# version.json is now tracked
+
 # Debug logs
 logs
 *.log

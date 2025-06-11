@@ -25,7 +25,7 @@ let selectedType = 'all';
 let numQuestions = 10;
 let quizHistory = [];
 let currentQuizAnswers = [];
-const MAX_HISTORY_ITEMS = 10;
+const MAX_HISTORY_ITEMS = 3; // Limit display to last 3 quizzes
 
 // Home button logic
 function goHome() {
@@ -73,10 +73,70 @@ function resetQuiz() {
     startScreen.classList.remove('hidden');
 }
 
+// Fetch and display version information
+function fetchVersionInfo() {
+    fetch('/api/version')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Version data received:', data);
+            const versionElement = document.getElementById('version-number');
+            if (versionElement) {
+                // Make sure we have valid data
+                if (!data) {
+                    versionElement.textContent = 'v1.0.0';
+                    return;
+                }
+                
+                // Ensure we have version property
+                const version = data.version || '1.0.0';
+                const gitCommit = data.gitCommit || '';
+                
+                // Display version and git commit hash separately for better visibility
+                let displayVersion = `v${version}`;
+                
+                // Create or get commit element
+                let commitElement = document.getElementById('commit-hash');
+                if (!commitElement) {
+                    commitElement = document.createElement('span');
+                    commitElement.id = 'commit-hash';
+                    commitElement.className = 'commit-hash';
+                    versionElement.parentNode.appendChild(commitElement);
+                }
+                
+                // Set version and commit separately
+                versionElement.textContent = displayVersion;
+                
+                if (gitCommit && gitCommit !== 'unknown') {
+                    commitElement.textContent = `#${gitCommit}`;
+                    commitElement.style.display = 'inline';
+                } else {
+                    commitElement.style.display = 'none';
+                }
+                
+                console.log('Displaying version:', displayVersion, 'Commit:', gitCommit);
+                
+                // Add build date as tooltip if available
+                if (data.buildDate) {
+                    versionElement.title = `Built on: ${data.buildDate}`;
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching version info:', error);
+            const versionElement = document.getElementById('version-number');
+            if (versionElement) {
+                versionElement.textContent = 'v1.0.0';
+            }
+        });
+}
+
 // Initialize the app
 function init() {
     // Load quiz history from localStorage
     loadQuizHistory();
+    
+    // Fetch git commit version
+    fetchVersionInfo();
     
     startBtn.addEventListener('click', startQuiz);
     nextBtn.addEventListener('click', showNextQuestion);
@@ -165,7 +225,14 @@ async function startQuiz() {
         
         // Fetch questions from API
         fetch(`/api/questions?level=${selectedLevel}&type=${selectedType}&limit=${numQuestions}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(err => {
+                        throw new Error(err.error || 'Failed to load questions');
+                    });
+                }
+                return response.json();
+            })
             .then(data => {
                 questions = data;
                 
@@ -196,7 +263,7 @@ async function startQuiz() {
             });
     } catch (error) {
         console.error('Error starting quiz:', error);
-        alert('Failed to load questions. Please try again.');
+        alert(error.message || 'Failed to load questions. Please try again.');
         startBtn.disabled = false;
         startBtn.textContent = 'Start Quiz';
     }
@@ -485,8 +552,8 @@ function updateHistoryDisplay() {
         return;
     }
     
-    // Add each history item
-    quizHistory.forEach((quiz, index) => {
+    // Add only the last 3 history items
+    quizHistory.slice(0, MAX_HISTORY_ITEMS).forEach((quiz, index) => {
         const historyItem = document.createElement('div');
         historyItem.className = 'history-item';
         

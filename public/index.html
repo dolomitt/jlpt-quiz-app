@@ -12,7 +12,10 @@
         <header>
             <div class="header-content">
                 <button id="home-icon" class="home-icon" aria-label="Go to Home">🏠</button>
-                <h1>JLPT Quiz</h1>
+                <div class="title-container">
+                    <h1>JLPT Quiz</h1>
+                    <div class="version-info"><span id="version-number">loading...</span></div>
+                </div>
             </div>
             <div id="score-display" class="hidden">
                 <span id="current-score">0</span> / <span id="total-questions">0</span>
@@ -99,7 +102,7 @@
                     <div class="history-header">
                         <h3>Quiz History</h3>
                         <button id="clear-history" class="clear-history-btn" title="Clear all history">
-                            <i class="fas fa-trash"></i>
+                            🗑️ Clear History
                         </button>
                     </div>
                     <div id="history-list" class="history-list">
@@ -132,6 +135,8 @@
             </div>
         </main>
     </div>
+
+
 
     <script src="/js/app.js"></script>
 </body>
