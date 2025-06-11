@@ -16,12 +16,16 @@ const percentageEl = document.getElementById('percentage');
 const resultMessageEl = document.getElementById('result-message');
 const homeIcon = document.getElementById('home-icon');
 
-// Quiz state
+// Global variables
+let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
-let questions = [];
 let selectedLevel = 'all';
 let selectedType = 'all';
+let numQuestions = 10;
+let quizHistory = [];
+let currentQuizAnswers = [];
+const MAX_HISTORY_ITEMS = 10;
 
 // Home button logic
 function goHome() {
@@ -30,15 +34,27 @@ function goHome() {
     resultScreen.classList.add('hidden');
     // Show start screen
     startScreen.classList.remove('hidden');
+    
     // Reset quiz state
     questions = [];
     currentQuestionIndex = 0;
     score = 0;
     currentScoreEl.textContent = '0';
     progressBar.style.width = '0%';
+    
+    // Clear options container
+    optionsContainer.innerHTML = '';
+    
+    // Remove any explanation that might be present
+    const explanationDiv = document.getElementById('explanation');
+    if (explanationDiv) explanationDiv.remove();
+    
     // Reset start button text
     startBtn.textContent = 'Start Quiz';
     startBtn.disabled = false;
+    
+    // Reset current quiz answers
+    currentQuizAnswers = [];
 }
 
 // Reset quiz
@@ -59,12 +75,21 @@ function resetQuiz() {
 
 // Initialize the app
 function init() {
+    // Load quiz history from localStorage
+    loadQuizHistory();
+    
     startBtn.addEventListener('click', startQuiz);
     nextBtn.addEventListener('click', showNextQuestion);
     restartBtn.addEventListener('click', resetQuiz);
     
     // Add event listener for home icon
     homeIcon.addEventListener('click', goHome);
+    
+    // Add event listener for clear history button
+    const clearHistoryBtn = document.getElementById('clear-history');
+    if (clearHistoryBtn) {
+        clearHistoryBtn.addEventListener('click', clearQuizHistory);
+    }
     
     // Add event listeners for radio buttons
     document.querySelectorAll('input[name="level"]').forEach(radio => {
@@ -109,6 +134,20 @@ function init() {
 
 // Start the quiz
 async function startQuiz() {
+    // Reset quiz state
+    currentQuestionIndex = 0;
+    score = 0;
+    questions = [];
+    currentQuizAnswers = [];
+    currentScoreEl.textContent = '0';
+    
+    // Clear options container
+    optionsContainer.innerHTML = '';
+    
+    // Remove any explanation that might be present
+    const explanationDiv = document.getElementById('explanation');
+    if (explanationDiv) explanationDiv.remove();
+    
     // Get selected values from radio buttons
     const selectedLevelRadio = document.querySelector('input[name="level"]:checked');
     const selectedTypeRadio = document.querySelector('input[name="type"]:checked');
@@ -166,11 +205,8 @@ async function startQuiz() {
 // Show current question
 function showQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
-    
-    // Check if currentQuestion is defined
     if (!currentQuestion) {
-        console.error('Error: No question found at index', currentQuestionIndex);
-        alert('Error loading question. Please try again.');
+        console.error('No question found at index', currentQuestionIndex);
         goHome(); // Return to home screen if there's an error
         return;
     }
@@ -215,6 +251,15 @@ function selectAnswer(e) {
     const selectedButton = e.target;
     const selectedAnswer = parseInt(selectedButton.dataset.index);
     const currentQuestion = questions[currentQuestionIndex];
+    
+    // Track this answer for history
+    currentQuizAnswers.push({
+        questionId: currentQuestion.id,
+        question: currentQuestion.question,
+        selectedAnswer: selectedAnswer,
+        correctAnswer: currentQuestion.answer,
+        isCorrect: selectedAnswer === currentQuestion.answer
+    });
 
     // Debug logging
     console.log('DEBUG: Selected answer index:', selectedAnswer);
@@ -292,6 +337,26 @@ function showResults() {
     }
     resultMessageEl.textContent = message;
     
+    // Save quiz to history
+    const quizDate = new Date();
+    
+    const quizRecord = {
+        date: quizDate.toISOString(),
+        level: selectedLevel,
+        type: selectedType,
+        numQuestions: questions.length,
+        score: score,
+        percentage: percentage,
+        answers: currentQuizAnswers
+    };
+    
+    // Add to history and save
+    quizHistory.unshift(quizRecord);
+    if (quizHistory.length > MAX_HISTORY_ITEMS) {
+        quizHistory = quizHistory.slice(0, MAX_HISTORY_ITEMS);
+    }
+    saveQuizHistory();
+    
     // Show result screen
     quizScreen.classList.add('hidden');
     resultScreen.classList.remove('hidden');
@@ -308,6 +373,11 @@ function updateProgressBar() {
 
 // Reset quiz
 function resetQuiz() {
+    // Reset quiz state
+    currentQuestionIndex = 0;
+    score = 0;
+    questions = [];
+    
     // Reset UI
     resultScreen.classList.add('hidden');
     startScreen.classList.remove('hidden');
@@ -318,6 +388,142 @@ function resetQuiz() {
     
     // Reset score display
     currentScoreEl.textContent = '0';
+    
+    // Reset current quiz answers
+    currentQuizAnswers = [];
+    
+    // Clear any options container content
+    optionsContainer.innerHTML = '';
+    
+    // Remove any explanation that might be present
+    const explanationDiv = document.getElementById('explanation');
+    if (explanationDiv) explanationDiv.remove();
+    
+    // Update history display
+    updateHistoryDisplay();
+}
+
+// Save quiz history to server and localStorage
+function saveQuizHistory() {
+    // Save to localStorage as backup
+    localStorage.setItem('jlptQuizHistory', JSON.stringify(quizHistory));
+    
+    // Save to server
+    fetch('/api/history', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizHistory[0]) // Send only the latest quiz record
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Quiz history saved to server:', data);
+    })
+    .catch(error => {
+        console.error('Error saving quiz history to server:', error);
+    });
+}
+
+// Load quiz history from server
+function loadQuizHistory() {
+    fetch('/api/history')
+        .then(response => response.json())
+        .then(data => {
+            quizHistory = data;
+            updateHistoryDisplay();
+        })
+        .catch(error => {
+            console.error('Error loading quiz history:', error);
+            // Fallback to localStorage if server request fails
+            const savedHistory = localStorage.getItem('jlptQuizHistory');
+            if (savedHistory) {
+                quizHistory = JSON.parse(savedHistory);
+                updateHistoryDisplay();
+            }
+        });
+}
+
+// Clear quiz history
+function clearQuizHistory() {
+    if (confirm('Are you sure you want to clear your entire quiz history?')) {
+        // Clear local history array
+        quizHistory = [];
+        
+        // Clear localStorage
+        localStorage.removeItem('jlptQuizHistory');
+        
+        // Clear server-side history
+        fetch('/api/history/clear', {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Server history cleared:', data);
+        })
+        .catch(error => {
+            console.error('Error clearing server history:', error);
+        });
+        
+        // Update the display
+        updateHistoryDisplay();
+    }
+}
+
+// Update the history display on the home page
+function updateHistoryDisplay() {
+    const historyList = document.getElementById('history-list');
+    
+    // Clear current content
+    historyList.innerHTML = '';
+    
+    if (quizHistory.length === 0) {
+        const noHistory = document.createElement('p');
+        noHistory.className = 'no-history';
+        noHistory.textContent = 'No quiz history yet. Take a quiz to see your results here!';
+        historyList.appendChild(noHistory);
+        return;
+    }
+    
+    // Add each history item
+    quizHistory.forEach((quiz, index) => {
+        const historyItem = document.createElement('div');
+        historyItem.className = 'history-item';
+        
+        // Format date
+        const quizDate = new Date(quiz.date);
+        const formattedDate = quizDate.toLocaleDateString() + ' ' + quizDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        // Create header with date and score
+        const header = document.createElement('div');
+        header.className = 'history-item-header';
+        header.innerHTML = `
+            <span>${formattedDate}</span>
+            <span class="history-item-score">${quiz.score}/${quiz.numQuestions} (${quiz.percentage}%)</span>
+        `;
+        
+        // Create details section
+        const details = document.createElement('div');
+        details.className = 'history-item-details';
+        details.innerHTML = `
+            <div>Level: ${quiz.level.toUpperCase()}</div>
+            <div>Type: ${quiz.type.charAt(0).toUpperCase() + quiz.type.slice(1)}</div>
+        `;
+        
+        // Add to history item
+        historyItem.appendChild(header);
+        historyItem.appendChild(details);
+        
+        // Add questions summary if available
+        if (quiz.answers && quiz.answers.length > 0) {
+            const questionsDiv = document.createElement('div');
+            questionsDiv.className = 'history-item-questions';
+            questionsDiv.textContent = `Questions: ${quiz.answers.filter(a => a.isCorrect).length} correct, ${quiz.answers.filter(a => !a.isCorrect).length} incorrect`;
+            historyItem.appendChild(questionsDiv);
+        }
+        
+        historyList.appendChild(historyItem);
+    });
 }
 
 // Initialize the app when the DOM is loaded

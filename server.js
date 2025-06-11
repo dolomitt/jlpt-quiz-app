@@ -11,6 +11,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
+// Path to history file
+const historyFilePath = path.join(__dirname, 'history.json');
+
 // Load questions from YAML file
 function loadQuestions() {
   try {
@@ -49,6 +52,13 @@ app.get('/api/questions', (req, res) => {
     .map(q => {
       // Make a deep copy of the question to avoid modifying the original
       const questionCopy = JSON.parse(JSON.stringify(q));
+      
+      // Add a unique ID if not already present
+      if (!questionCopy.id) {
+        // Create an ID based on level, type, and first few characters of question
+        const questionText = questionCopy.question.replace(/[^a-zA-Z0-9]/g, '');
+        questionCopy.id = `${questionCopy.level}-${questionCopy.type}-${questionText.substring(0, 10)}`;
+      }
       
       // Get the correct answer text before shuffling
       const correctAnswerText = questionCopy.options[questionCopy.answer];
@@ -92,6 +102,74 @@ app.post('/api/check-answer', (req, res) => {
 // Serve the main HTML file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// API endpoint to get quiz history
+app.get('/api/history', (req, res) => {
+  try {
+    // Check if history file exists, if not create it
+    if (!fs.existsSync(historyFilePath)) {
+      fs.writeFileSync(historyFilePath, JSON.stringify([]), 'utf8');
+    }
+    
+    // Read history file
+    const historyData = JSON.parse(fs.readFileSync(historyFilePath, 'utf8'));
+    res.json(historyData);
+  } catch (error) {
+    console.error('Error reading history:', error);
+    res.status(500).json({ error: 'Failed to retrieve quiz history' });
+  }
+});
+
+// API endpoint to save quiz history
+app.post('/api/history', (req, res) => {
+  try {
+    const newQuizRecord = req.body;
+    
+    // Validate the quiz record
+    if (!newQuizRecord.date || !newQuizRecord.level || !newQuizRecord.type || 
+        !newQuizRecord.numQuestions || newQuizRecord.score === undefined) {
+      return res.status(400).json({ error: 'Invalid quiz record data' });
+    }
+    
+    // Check if history file exists, if not create it
+    if (!fs.existsSync(historyFilePath)) {
+      fs.writeFileSync(historyFilePath, JSON.stringify([]), 'utf8');
+    }
+    
+    // Read current history
+    let historyData = JSON.parse(fs.readFileSync(historyFilePath, 'utf8'));
+    
+    // Add new record to the beginning
+    historyData.unshift(newQuizRecord);
+    
+    // Keep only the latest 50 records
+    if (historyData.length > 50) {
+      historyData = historyData.slice(0, 50);
+    }
+    
+    // Write updated history back to file
+    fs.writeFileSync(historyFilePath, JSON.stringify(historyData, null, 2), 'utf8');
+    
+    res.json({ success: true, message: 'Quiz history saved successfully' });
+  } catch (error) {
+    console.error('Error saving history:', error);
+    res.status(500).json({ error: 'Failed to save quiz history' });
+  }
+});
+
+// API endpoint to clear quiz history
+app.delete('/api/history/clear', (req, res) => {
+  try {
+    // Write empty array to history file
+    fs.writeFileSync(historyFilePath, JSON.stringify([]), 'utf8');
+    
+    console.log('Quiz history cleared');
+    res.json({ success: true, message: 'Quiz history cleared successfully' });
+  } catch (error) {
+    console.error('Error clearing history:', error);
+    res.status(500).json({ error: 'Failed to clear quiz history' });
+  }
 });
 
 app.listen(PORT, () => {

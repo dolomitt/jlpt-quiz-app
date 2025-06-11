@@ -1,13 +1,15 @@
 # JLPT Quiz Questions
 # Format:
-# - level: N1-N5 (JLPT level)
+# - id: Unique identifier for the question
+#   level: N1-N5 (JLPT level)
 #   type: grammar/vocabulary/reading
 #   question: The question text
 #   options: List of possible answers (2-4 options)
 #   answer: Index of the correct answer (0-based)
 
 # N5 Questions (kept as reference)
-- level: N5
+- id: "N5-vocab-hon"
+  level: N5
   type: vocabulary
   title: "Japanese Noun"
   question: "What is the meaning of '本'?"
@@ -21,7 +23,8 @@
 
 # N3 Grammar Questions
 ## ～ばかりでなく (not only... but also)
-- level: N3
+- id: "N3-gram-bakaride"
+  level: N3
   type: grammar
   title: "Not only... but also"
   question: "彼は英語＿＿＿、日本語も話せます。"
@@ -33,7 +36,8 @@
   answer: 1
   explanation: "'～ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only English, but also Japanese.'"
 
-- level: N3
+- id: "N3-gram-wakegaanai"
+  level: N3
   type: grammar
   title: "Definitely Not"
   question: "スイッチをいれたんだから、赤いランプがつかない＿＿＿。へんだなあ。"
@@ -42,9 +46,10 @@
     - "わけではない"
     - "わけがない"
   answer: 2
-  explanation: "'～ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only English, but also Japanese.'"
+  explanation: "'わけがない' means 'there's no way that' or 'it's impossible that'. The sentence means 'I turned on the switch, so there's no way the red light isn't on. That's strange.'"
 
-- level: N3
+- id: "N3-gram-dakedenaku"
+  level: N3
   type: grammar
   title: "Not only... but also"
   question: "このレストランは味＿＿＿、サービスもとても良いです。"

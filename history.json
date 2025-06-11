@@ -1,0 +1,172 @@
+[
+  {
+    "date": "2025-06-11T05:41:31.943Z",
+    "level": "N3",
+    "type": "grammar",
+    "numQuestions": 5,
+    "score": 0,
+    "percentage": 0,
+    "answers": [
+      {
+        "questionId": "N3-grammar-",
+        "question": "忙しくて旅行＿＿＿、休みも取れない。",
+        "selectedAnswer": 0,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "説明書を読＿＿＿わかります。",
+        "selectedAnswer": 2,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-wakegaanai",
+        "question": "スイッチをいれたんだから、赤いランプがつかない＿＿＿。へんだなあ。",
+        "selectedAnswer": 0,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-bakaride",
+        "question": "彼は英語＿＿＿、日本語も話せます。",
+        "selectedAnswer": 1,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "お金＿＿＿あれば、旅行に行けるのに。",
+        "selectedAnswer": 1,
+        "correctAnswer": 3,
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "date": "2025-06-11T02:59:40.038Z",
+    "level": "all",
+    "type": "all",
+    "numQuestions": 10,
+    "score": 0,
+    "percentage": 0,
+    "answers": [
+      {
+        "questionId": "N3-grammar-",
+        "question": "この歌は聞けば聞く＿＿＿好きになる。",
+        "selectedAnswer": 3,
+        "correctAnswer": 1,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-dakedenaku",
+        "question": "このレストランは味＿＿＿、サービスもとても良いです。",
+        "selectedAnswer": 2,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-wakegaanai",
+        "question": "スイッチをいれたんだから、赤いランプがつかない＿＿＿。へんだなあ。",
+        "selectedAnswer": 1,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N4-grammar-",
+        "question": "東京は大阪＿＿＿大きいです。",
+        "selectedAnswer": 1,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼女は歌＿＿＿、ダンスも得意です。",
+        "selectedAnswer": 0,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼は日本語を話せる＿＿＿、ひらがなも読めません。",
+        "selectedAnswer": 1,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-bakaride",
+        "question": "彼は英語＿＿＿、日本語も話せます。",
+        "selectedAnswer": 3,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "あなたがそばにい＿＿＿、私は幸せです。",
+        "selectedAnswer": 3,
+        "correctAnswer": 2,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N4-vocabulary-",
+        "question": "この問題は＿＿＿ですね。",
+        "selectedAnswer": 2,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N5-vocab-hon",
+        "question": "What is the meaning of '本'?",
+        "selectedAnswer": 1,
+        "correctAnswer": 3,
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "date": "2025-06-11T02:19:36.333Z",
+    "level": "N3",
+    "type": "grammar",
+    "numQuestions": 5,
+    "score": 2,
+    "percentage": 40,
+    "answers": [
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼女は歌＿＿＿、ダンスも得意です。",
+        "selectedAnswer": 1,
+        "correctAnswer": 1,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼は病気＿＿＿、会社に行きました。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "あなたがそばにい＿＿＿、私は幸せです。",
+        "selectedAnswer": 1,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "大雨＿＿＿、サッカーの試合は続けられた。",
+        "selectedAnswer": 2,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-wakegaanai",
+        "question": "スイッチをいれたんだから、赤いランプがつかない＿＿＿。へんだなあ。",
+        "selectedAnswer": 0,
+        "correctAnswer": 2,
+        "isCorrect": false
+      }
+    ]
+  }
+]
