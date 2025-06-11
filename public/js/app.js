@@ -194,6 +194,12 @@ function init() {
 
 // Start the quiz
 async function startQuiz() {
+    // Remove any existing error messages
+    const errorElement = document.getElementById('quiz-error-message');
+    if (errorElement) {
+        errorElement.remove();
+    }
+    
     // Reset quiz state
     currentQuestionIndex = 0;
     score = 0;
@@ -228,7 +234,7 @@ async function startQuiz() {
             .then(response => {
                 if (!response.ok) {
                     return response.json().then(err => {
-                        throw new Error(err.error || 'Failed to load questions');
+                        return Promise.reject(new Error(err.error || 'Failed to load questions'));
                     });
                 }
                 return response.json();
@@ -260,12 +266,74 @@ async function startQuiz() {
                 // Reset button
                 startBtn.textContent = 'Start Quiz';
                 startBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error in fetch:', error);
+                
+                // Create or get error message element
+                let errorElement = document.getElementById('quiz-error-message');
+                if (!errorElement) {
+                    errorElement = document.createElement('div');
+                    errorElement.id = 'quiz-error-message';
+                    errorElement.style.color = '#0277bd';
+                    errorElement.style.margin = '15px 0';
+                    errorElement.style.padding = '10px';
+                    errorElement.style.backgroundColor = '#e1f5fe';
+                    errorElement.style.borderRadius = '4px';
+                    errorElement.style.borderLeft = '4px solid #0277bd';
+                    
+                    // Insert the error message before the start button
+                    const startButtonContainer = startBtn.parentElement;
+                    startButtonContainer.insertBefore(errorElement, startBtn);
+                }
+                
+                // Set error message with helpful guidance
+                errorElement.innerHTML = `
+                    <strong>Let's try something else!</strong><br>
+                    ${error.message || 'We need a different combination.'}<br>
+                    <small>Try selecting a different level or question type to find available questions.</small>
+                `;
+                
+                // Scroll to error message
+                errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Reset button state
+                startBtn.disabled = false;
+                startBtn.textContent = 'Try Again';
             });
     } catch (error) {
-        console.error('Error starting quiz:', error);
-        alert(error.message || 'Failed to load questions. Please try again.');
+        console.error('Error starting quiz (outside fetch):', error);
+        
+        // Create or get error message element
+        let errorElement = document.getElementById('quiz-error-message');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.id = 'quiz-error-message';
+            errorElement.style.color = '#0277bd';
+            errorElement.style.margin = '15px 0';
+            errorElement.style.padding = '10px';
+            errorElement.style.backgroundColor = '#e1f5fe';
+            errorElement.style.borderRadius = '4px';
+            errorElement.style.borderLeft = '4px solid #0277bd';
+            
+            // Insert the error message before the start button
+            const startButtonContainer = startBtn.parentElement;
+            startButtonContainer.insertBefore(errorElement, startBtn);
+        }
+        
+        // Set error message with helpful guidance
+        errorElement.innerHTML = `
+            <strong>Let's try again</strong><br>
+            ${error.message || 'Something unexpected happened.'}<br>
+            <small>Please try again or refresh the page to continue.</small>
+        `;
+        
+        // Scroll to error message
+        errorElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Reset button state
         startBtn.disabled = false;
-        startBtn.textContent = 'Start Quiz';
+        startBtn.textContent = 'Try Again';
     }
 }
 

@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "date": "2025-06-11T07:32:18.117Z",
+    "level": "all",
+    "type": "grammar",
+    "numQuestions": 10,
+    "score": 9,
+    "percentage": 90,
+    "answers": [
+      {
+        "questionId": "N4-grammar-",
+        "question": "私は日本語の新聞を読む＿＿＿。",
+        "selectedAnswer": 1,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-dakedenaku",
+        "question": "このレストランは味＿＿＿、サービスもとても良いです。",
+        "selectedAnswer": 3,
+        "correctAnswer": 3,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼は病気＿＿＿、会社に行きました。",
+        "selectedAnswer": 2,
+        "correctAnswer": 2,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N4-grammar-",
+        "question": "東京は大阪＿＿＿大きいです。",
+        "selectedAnswer": 1,
+        "correctAnswer": 1,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "勉強すれば＿＿＿、日本語が上手になります。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "説明書を読＿＿＿わかります。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "お金＿＿＿あれば、旅行に行けるのに。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "大雨＿＿＿、サッカーの試合は続けられた。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "忙しくて旅行＿＿＿、休みも取れない。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼女は歌＿＿＿、ダンスも得意です。",
+        "selectedAnswer": 2,
+        "correctAnswer": 2,
+        "isCorrect": true
+      }
+    ]
+  }
+]

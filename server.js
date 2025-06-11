@@ -59,7 +59,7 @@ app.get('/api/questions', (req, res) => {
   // Check if any questions match the filters
   if (questions.length === 0) {
     return res.status(404).json({ 
-      error: 'No questions found matching the selected filters. Please try different criteria.' 
+      error: 'We don\'t have questions for this combination yet. Please select a different level or question type.' 
     });
   }
   
