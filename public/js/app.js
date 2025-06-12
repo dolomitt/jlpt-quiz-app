@@ -367,12 +367,11 @@ function showQuestion() {
     const explanationDiv = document.getElementById('explanation');
     if (explanationDiv) explanationDiv.remove();
 
-    // Create and append option buttons with letter identifiers
-    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']; // Support up to 8 options
+    // Create and append option buttons (letters are already added by the server)
     currentQuestion.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.className = 'option-btn';
-        button.textContent = `${letters[index]}. ${option}`;
+        button.textContent = option; // Options already have letter prefixes from the server
         button.dataset.index = index;
         button.addEventListener('click', selectAnswer);
         optionsContainer.appendChild(button);
