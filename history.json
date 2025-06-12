@@ -1,5 +1,85 @@
 [
   {
+    "date": "2025-06-12T13:25:19.956Z",
+    "level": "all",
+    "type": "grammar",
+    "numQuestions": 10,
+    "score": 6,
+    "percentage": 60,
+    "answers": [
+      {
+        "questionId": "N3-grammar-",
+        "question": "お金＿＿＿あれば、旅行に行けるのに。",
+        "selectedAnswer": 2,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N4-grammar-",
+        "question": "私は日本語の新聞を読む＿＿＿。",
+        "selectedAnswer": 1,
+        "correctAnswer": 1,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼は日本語を話せる＿＿＿、ひらがなも読めません。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "説明書を読＿＿＿わかります。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-gram-dakedenaku",
+        "question": "このレストランは味＿＿＿、サービスもとても良いです。",
+        "selectedAnswer": 2,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-gram-bakaride",
+        "question": "彼は英語＿＿＿、日本語も話せます。",
+        "selectedAnswer": 2,
+        "correctAnswer": 0,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "彼は病気＿＿＿、会社に行きました。",
+        "selectedAnswer": 0,
+        "correctAnswer": 0,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N3-grammar-",
+        "question": "約束した＿＿＿、彼は来なかった。",
+        "selectedAnswer": 1,
+        "correctAnswer": 3,
+        "isCorrect": false
+      },
+      {
+        "questionId": "N4-grammar-",
+        "question": "先生は私に本を＿＿＿。",
+        "selectedAnswer": 1,
+        "correctAnswer": 1,
+        "isCorrect": true
+      },
+      {
+        "questionId": "N4-grammar-",
+        "question": "日本語を勉強する＿＿＿、日本に行きます。",
+        "selectedAnswer": 3,
+        "correctAnswer": 3,
+        "isCorrect": true
+      }
+    ]
+  },
+  {
     "date": "2025-06-11T07:32:18.117Z",
     "level": "all",
     "type": "grammar",

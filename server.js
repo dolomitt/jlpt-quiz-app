@@ -84,10 +84,16 @@ app.get('/api/questions', (req, res) => {
       // Get the correct answer text before shuffling
       const correctAnswerText = questionCopy.options[questionCopy.answer];
       
-      // Shuffle the options
+      // Shuffle options
       const shuffledOptions = [...questionCopy.options].sort(() => Math.random() - 0.5);
       
-      // Find the new index of the correct answer by matching the text
+      // Add letter identifiers (A, B, C, D) to the options
+      const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']; // Support up to 8 options
+      const optionsWithLetters = shuffledOptions.map((option, idx) => {
+        return `${letters[idx]}. ${option}`;
+      });
+      
+      // Find the new index of the correct answer after shuffling
       const newAnswerIndex = shuffledOptions.findIndex(option => option === correctAnswerText);
       
       // Log for debugging
@@ -97,7 +103,7 @@ app.get('/api/questions', (req, res) => {
       
       return {
         ...questionCopy,
-        options: shuffledOptions,
+        options: optionsWithLetters,
         answer: newAnswerIndex
       };
     })
