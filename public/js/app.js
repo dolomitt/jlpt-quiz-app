@@ -337,6 +337,21 @@ async function startQuiz() {
     }
 }
 
+// Function to parse markdown if available
+function parseMarkdown(text) {
+    // Check if the marked library is available (it's loaded via script tag)
+    if (typeof marked !== 'undefined') {
+        try {
+            return marked.parse(text);
+        } catch (error) {
+            console.error('Error parsing markdown:', error);
+            return text; // Return original text if parsing fails
+        }
+    } else {
+        return text; // Return original text if marked is not available
+    }
+}
+
 // Show current question
 function showQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
@@ -354,12 +369,12 @@ function showQuestion() {
     // Update progress
     updateProgressBar();
 
-    // Set question title and text
+    // Set question title and text with markdown support
     let html = '';
     if (currentQuestion.title) {
-        html += `<div class="question-title">${currentQuestion.title}</div>`;
+        html += `<div class="question-title">${parseMarkdown(currentQuestion.title)}</div>`;
     }
-    html += `<div>${currentQuestion.question}</div>`;
+    html += `<div>${parseMarkdown(currentQuestion.question)}</div>`;
     questionText.innerHTML = html;
 
     // Clear previous options and explanation
@@ -371,7 +386,29 @@ function showQuestion() {
     currentQuestion.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.className = 'option-btn';
-        button.textContent = option; // Options already have letter prefixes from the server
+        
+        // Extract the letter prefix (e.g., "A. ") and the rest of the option text
+        const match = option.match(/^([A-Z])\. (.+)$/);
+        if (match) {
+            const letter = match[1];
+            const optionText = match[2];
+            
+            // Create a span for the letter prefix
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'option-letter';
+            letterSpan.textContent = letter;
+            button.appendChild(letterSpan);
+            
+            // Create a span for the option text with markdown support
+            const textSpan = document.createElement('span');
+            textSpan.className = 'option-text';
+            textSpan.innerHTML = parseMarkdown(optionText);
+            button.appendChild(textSpan);
+        } else {
+            // Fallback if the option doesn't match the expected format
+            button.textContent = option;
+        }
+        
         button.dataset.index = index;
         button.addEventListener('click', selectAnswer);
         optionsContainer.appendChild(button);
@@ -383,7 +420,10 @@ function showQuestion() {
 
 // Handle answer selection
 function selectAnswer(e) {
-    const selectedButton = e.target;
+    // Find the button element (might be a child element that was clicked)
+    const selectedButton = e.target.closest('.option-btn');
+    if (!selectedButton) return; // Exit if we couldn't find the button
+    
     const selectedAnswer = parseInt(selectedButton.dataset.index);
     const currentQuestion = questions[currentQuestionIndex];
     
@@ -419,18 +459,33 @@ function selectAnswer(e) {
         score++;
         currentScoreEl.textContent = score;
     } else {
+        // Force the incorrect class to be applied
+        console.log('Marking as incorrect:', selectedButton);
         selectedButton.classList.add('incorrect');
+        
         // Show correct answer - make sure we're highlighting the right one
         const correctButton = optionButtons[currentQuestion.answer];
-        correctButton.classList.add('correct');
-        console.log('DEBUG: Highlighting as correct:', correctButton.textContent);
+        if (correctButton) {
+            correctButton.classList.add('correct');
+            console.log('DEBUG: Highlighting as correct:', correctButton.textContent);
+        } else {
+            console.error('Could not find correct button at index:', currentQuestion.answer);
+        }
         
-        // Show explanation if available
+        // Add explanation if available
         if (currentQuestion.explanation) {
-            let explanationDiv = document.createElement('div');
+            // Remove any existing explanation
+            const existingExplanation = document.getElementById('explanation');
+            if (existingExplanation) {
+                existingExplanation.remove();
+            }
+            
+            const explanationDiv = document.createElement('div');
             explanationDiv.id = 'explanation';
             explanationDiv.className = 'explanation-block';
-            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${currentQuestion.explanation}`;
+            explanationDiv.innerHTML = `<strong>Explanation:</strong> ${parseMarkdown(currentQuestion.explanation)}`;
+            
+            // Insert the explanation at the end of the options container
             optionsContainer.appendChild(explanationDiv);
         }
     }
@@ -661,5 +716,43 @@ function updateHistoryDisplay() {
     });
 }
 
-// Initialize the app when the DOM is loaded
-document.addEventListener('DOMContentLoaded', init);
+// Theme toggle functionality
+function initThemeToggle() {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    
+    // Check for saved theme preference or use device preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Apply the saved theme or device preference
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+    
+    // Handle theme toggle click
+    themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        let newTheme;
+        
+        if (currentTheme === 'dark') {
+            newTheme = null; // Use default (light) theme
+            document.documentElement.removeAttribute('data-theme');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+            newTheme = 'dark';
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        localStorage.setItem('theme', newTheme);
+    });
+}
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    fetchVersionInfo();
+    initThemeToggle();
+});

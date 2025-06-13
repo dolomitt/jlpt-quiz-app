@@ -6,17 +6,22 @@
     <title>JLPT Quiz App</title>
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="app-container">
-        <header>
-            <div class="header-content">
-                <button id="home-icon" class="home-icon" aria-label="Go to Home">🏠</button>
-                <div class="title-container">
-                    <h1>JLPT Quiz</h1>
-                    <div class="version-info"><span id="version-number">loading...</span></div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <div class="container">
+        <div class="app-container">
+            <header>
+                <div class="header-content">
+                    <button id="home-icon" class="home-icon" aria-label="Go to Home">🏠</button>
+                    <div class="title-container">
+                        <h1>JLPT Quiz</h1>
+                        <div class="version-info"><span id="version-number">loading...</span></div>
+                    </div>
                 </div>
-            </div>
             <div id="score-display" class="hidden">
                 <span id="current-score">0</span> / <span id="total-questions">0</span>
             </div>
@@ -136,8 +141,14 @@
         </main>
     </div>
 
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="version-info"><span id="version-number">loading...</span></div>
+        </div>
+    </footer>
 
-
+    <!-- Add marked.js for markdown support -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

@@ -1,13 +1,34 @@
 :root {
+    /* Light theme (default) */
     --primary-color: #4a6fa5;
-    --secondary-color: #6b8cae;
+    --secondary-color: #6d98d3;
+    --accent-color: #f0f4fa;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --card-background: #ffffff;
+    --border-color: #ddd;
     --success-color: #4caf50;
     --error-color: #f44336;
-    --background-color: #f5f7fa;
+    --warning-color: #ff9800;
+    --info-color: #2196f3;
     --card-bg: #ffffff;
-    --text-color: #333333;
-    --border-color: #e0e0e0;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+    --primary-color: #6d98d3;
+    --secondary-color: #4a6fa5;
+    --accent-color: #1e2a3a;
+    --text-color: #f0f0f0;
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --border-color: #444;
+    --success-color: #66bb6a;
+    --error-color: #ef5350;
+    --warning-color: #ffb74d;
+    --info-color: #42a5f5;
+    --card-bg: #1e1e1e;
 }
 
 * {
@@ -17,10 +38,11 @@
 }
 
 body {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -28,7 +50,9 @@ body {
 .app-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1rem;
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -99,11 +123,12 @@ h1 {
 }
 
 .screen {
-    background-color: var(--card-bg);
+    background-color: var(--card-background);
     border-radius: 10px;
     padding: 2rem;
     box-shadow: var(--shadow);
     flex: 1;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
 }
@@ -253,10 +278,11 @@ label {
 }
 
 .option-btn {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
     margin: 0.2rem 0;
-    background-color: white;
+    background-color: var(--card-background);
     border: 2px solid var(--border-color);
     border-radius: 5px;
     padding: 0.7rem 0.9rem;
@@ -264,23 +290,35 @@ label {
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
+    position: relative; /* For proper positioning of child elements */
+    color: var(--text-color);
 }
 
 .option-btn:hover {
-    background-color: #f5f5f5;
+    background-color: var(--accent-color);
     border-color: var(--primary-color);
 }
 
 .option-btn.correct {
-    background-color: #e8f5e9;
+    background-color: rgba(76, 175, 80, 0.15);
     border-color: var(--success-color);
     color: var(--success-color);
 }
 
+.option-btn.correct .option-letter {
+    background-color: var(--success-color);
+    color: white;
+}
+
 .option-btn.incorrect {
-    background-color: #ffebee;
+    background-color: rgba(244, 67, 54, 0.15);
     border-color: var(--error-color);
     color: var(--error-color);
+}
+
+.option-btn.incorrect .option-letter {
+    background-color: var(--error-color);
+    color: white;
 }
 
 .progress-container {
@@ -329,10 +367,10 @@ label {
 .explanation-block {
     margin-top: 1.5rem;
     padding: 1rem;
-    background: #f8f8e7;
+    background: var(--accent-color);
     border-left: 4px solid var(--primary-color);
     border-radius: 6px;
-    color: #333;
+    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -357,9 +395,9 @@ label {
 }
 
 .clear-history-btn {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    color: #666;
+    background-color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 4px;
@@ -385,11 +423,12 @@ label {
 }
 
 .history-item {
-    background-color: white;
+    background-color: var(--card-background);
     border-radius: 5px;
     padding: 0.8rem;
     margin-bottom: 0.8rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: var(--text-color);
 }
 
 .history-item:last-child {
@@ -409,7 +448,8 @@ label {
 
 .history-item-details {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 .history-item-questions {
@@ -544,6 +584,155 @@ label {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Markdown styles */
+.question-text {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Markdown content styling */
+.question-text h1, .question-text h2, .question-text h3,
+.option-text h1, .option-text h2, .option-text h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.question-text h1, .option-text h1 { font-size: 1.5rem; }
+.question-text h2, .option-text h2 { font-size: 1.3rem; }
+.question-text h3, .option-text h3 { font-size: 1.1rem; }
+
+.question-text p, .option-text p {
+    margin-bottom: 1rem;
+}
+
+.question-text ul, .question-text ol,
+.option-text ul, .option-text ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.question-text code, .option-text code {
+    background-color: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.question-text pre, .option-text pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.question-text blockquote, .option-text blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: #555;
+}
+
+.question-text img, .option-text img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+.question-text table, .option-text table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.question-text th, .question-text td,
+.option-text th, .option-text td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.question-text th, .option-text th {
+    background-color: #f5f5f5;
+}
+
+/* Option letter and text styling */
+.option-letter {
+    font-weight: bold;
+    color: white;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    min-width: 24px; /* Prevent shrinking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.option-text {
+    display: block;
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* Fix vertical alignment of paragraphs inside option text */
+.option-text p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure all markdown elements inside options are properly aligned */
+.option-text * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.5);
+}
+
+/* Japanese language specific styles */
+.question-text:lang(ja), .option-text:lang(ja),
+.question-text .ja, .option-text .ja {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
 }
 
 .question-container {

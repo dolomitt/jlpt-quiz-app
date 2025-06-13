@@ -4,6 +4,14 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const bodyParser = require('body-parser');
 const { execSync } = require('child_process');
+const { marked } = require('marked');
+
+// Configure marked for safe rendering
+marked.setOptions({
+  sanitize: true, // Sanitize HTML tags
+  breaks: true,   // Convert line breaks to <br>
+  gfm: true       // Enable GitHub Flavored Markdown
+});
 
 // Load version information from version.json if it exists, otherwise use defaults
 let versionInfo = { version: '1.0.0', gitCommit: 'unknown', buildDate: new Date().toISOString() };
