@@ -1,6 +1,6 @@
 # JLPT Quiz Questions
 # Format:
-# - id: Unique identifier for the question
+# - id: Unique identifier for the question (incremental number)
 #   level: N1-N5 (JLPT level)
 #   type: grammar/vocabulary/reading
 #   question: The question text
@@ -8,7 +8,7 @@
 #   answer: Index of the correct answer (0-based)
 
 # N5 Questions (kept as reference)
-- id: "N5-vocab-hon"
+- id: 1
   level: N5
   type: vocabulary
   title: "Japanese Noun"
@@ -23,7 +23,7 @@
 
 # N3 Grammar Questions
 ## ～ばかりでなく (not only... but also)
-- id: "N3-gram-bakaride"
+- id: 2
   level: N3
   type: grammar
   title: "Not only... but also"
@@ -36,7 +36,7 @@
   answer: 1
   explanation: "'～ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only English, but also Japanese.'"
 
-- id: "N3-gram-wakegaanai"
+- id: 3
   level: N3
   type: grammar
   title: "Definitely Not"
@@ -48,7 +48,7 @@
   answer: 2
   explanation: "'わけがない' means 'there's no way that' or 'it's impossible that'. The sentence means 'I turned on the switch, so there's no way the red light isn't on. That's strange.'"
 
-- id: "N3-gram-dakedenaku"
+- id: 4
   level: N3
   type: grammar
   title: "Not only... but also"
@@ -61,7 +61,8 @@
   answer: 1
   explanation: "'だけでなく' means 'not only... but also'. The sentence means 'This restaurant not only has good taste, but also very good service.'"
 
-- level: N3
+- id: 5
+  level: N3
   type: grammar
   title: "Not only... but also"
   question: "彼女は歌＿＿＿、ダンスも得意です。"
@@ -74,7 +75,8 @@
   explanation: "'だけでなく' means 'not only... but also'. The sentence means 'She is not only good at singing, but also at dancing.'"
 
 ## ～どころか (far from, not to mention)
-- level: N3
+- id: 6
+  level: N3
   type: grammar
   title: "Far from..."
   question: "風邪はよくなる＿＿＿、もっと悪くなった。"
@@ -86,7 +88,8 @@
   answer: 0
   explanation: "'～どころか' means 'far from...'. The meaning is 'Far from getting better, my cold got even worse.'"
 
-- level: N3
+- id: 7
+  level: N3
   type: grammar
   title: "Far from..."
   question: "彼は日本語を話せる＿＿＿、ひらがなも読めません。"
@@ -98,7 +101,8 @@
   answer: 0
   explanation: "'どころか' means 'far from...'. The sentence means 'Far from being able to speak Japanese, he can't even read hiragana.'"
 
-- level: N3
+- id: 8
+  level: N3
   type: grammar
   title: "Far from..."
   question: "忙しくて旅行＿＿＿、休みも取れない。"
@@ -111,7 +115,8 @@
   explanation: "'どころか' means 'far from...'. The sentence means 'I'm so busy that I can't even take a break, let alone go on a trip.'"
 
 ## ～にもかかわらず (in spite of, despite)
-- level: N3
+- id: 9
+  level: N3
   type: grammar
   title: "In spite of, despite"
   question: "大雨＿＿＿、サッカーの試合は続けられた。"
@@ -123,7 +128,8 @@
   answer: 0
   explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Despite the heavy rain, the soccer match continued.'"
 
-- level: N3
+- id: 10
+  level: N3
   type: grammar
   title: "In spite of, despite"
   question: "彼は病気＿＿＿、会社に行きました。"
@@ -135,7 +141,8 @@
   answer: 0
   explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Despite being sick, he went to work.'"
 
-- level: N3
+- id: 11
+  level: N3
   type: grammar
   title: "In spite of, despite"
   question: "約束した＿＿＿、彼は来なかった。"
@@ -148,7 +155,8 @@
   explanation: "'にもかかわらず' means 'in spite of' or 'despite'. The sentence means 'Even though he promised, he didn't come.'"
 
 ## ～ば～ほど (the more... the more...)
-- level: N3
+- id: 12
+  level: N3
   type: grammar
   title: "The more... the more..."
   question: "勉強すれば＿＿＿、日本語が上手になります。"
@@ -160,7 +168,8 @@
   answer: 0
   explanation: "'Vば Vほど' means 'the more you do, the more...'. Here, '勉強すればするほど' means 'The more you study, the better your Japanese will get.'"
 
-- level: N3
+- id: 13
+  level: N3
   type: grammar
   title: "The more... the more..."
   question: "この歌は聞けば聞く＿＿＿好きになる。"
@@ -172,7 +181,8 @@
   answer: 0
   explanation: "'Vば Vほど' means 'the more you do, the more...'. Here, '聞けば聞くほど' means 'The more you listen to this song, the more you like it.'"
 
-- level: N3
+- id: 14
+  level: N3
   type: grammar
   title: "The more... the more..."
   question: "説明は簡単＿＿＿簡単なほどいい。"
@@ -185,7 +195,8 @@
   explanation: "'AほどB' means 'the more A, the more B'. Here, '簡単ほど簡単なほど' means 'The simpler the explanation, the better.'"
 
 ## ～さえ～ば (if only, as long as)
-- level: N3
+- id: 15
+  level: N3
   type: grammar
   title: "If only, as long as"
   question: "説明書を読＿＿＿わかります。"
@@ -197,7 +208,8 @@
   answer: 0
   explanation: "'～さえ～ば' means 'if only...'. Here, '説明書を読みさえすれば' means 'If you just read the manual, you'll understand.'"
 
-- level: N3
+- id: 16
+  level: N3
   type: grammar
   title: "If only, as long as"
   question: "あなたがそばにい＿＿＿、私は幸せです。"
@@ -209,7 +221,8 @@
   answer: 0
   explanation: "'～さえ～ば' means 'if only...'. Here, 'あなたがそばにいさえすれば' means 'If only you are by my side, I am happy.'"
 
-- level: N3
+- id: 17
+  level: N3
   type: grammar
   title: "If only, as long as"
   question: "お金＿＿＿あれば、旅行に行けるのに。"
@@ -222,7 +235,8 @@
   explanation: "'～さえ～ば' means 'if only...'. Here, 'お金さえあれば' means 'If only I had money, I could go on a trip.'"
 
 # N4 Level Questions
-- level: N4
+- id: 18
+  level: N4
   type: grammar
   title: "Potential Form"
   question: "私は日本語の新聞を読む＿＿＿。"
@@ -234,7 +248,8 @@
   answer: 1
   explanation: "'ことができます' is the polite form of the potential expression 'can do'. The sentence means 'I can read Japanese newspapers.'"
 
-- level: N4
+- id: 19
+  level: N4
   type: grammar
   title: "Giving and Receiving"
   question: "先生は私に本を＿＿＿。"
@@ -246,7 +261,8 @@
   answer: 1
   explanation: "'くれました' is used when someone gives something to the speaker. Here, 'The teacher gave me a book.'"
 
-- level: N4
+- id: 20
+  level: N4
   type: grammar
   title: "Conditional Form"
   question: "雨が降ったら、傘を＿＿＿。"
@@ -258,7 +274,8 @@
   answer: 0
   explanation: "'たら' is a conditional form meaning 'if/when'. The plain form follows it. The sentence means 'If it rains, I will take an umbrella.'"
 
-- level: N4
+- id: 21
+  level: N4
   type: vocabulary
   title: "Time Expressions"
   question: "会議は３時間＿＿＿続きました。"
@@ -270,7 +287,8 @@
   answer: 3
   explanation: "'ばかり' means 'about/approximately' with time expressions. The sentence means 'The meeting continued for about 3 hours.'"
 
-- level: N4
+- id: 22
+  level: N4
   type: vocabulary
   title: "Adjectives"
   question: "この問題は＿＿＿ですね。"
@@ -282,7 +300,8 @@
   answer: 0
   explanation: "'～そう' attached to the stem of an i-adjective indicates appearance or likelihood. The sentence means 'This problem looks difficult.'"
 
-- level: N4
+- id: 23
+  level: N4
   type: grammar
   title: "Purpose Expression"
   question: "日本語を勉強する＿＿＿、日本に行きます。"
@@ -294,7 +313,8 @@
   answer: 0
   explanation: "'ために' expresses purpose. The sentence means 'I will go to Japan in order to study Japanese.'"
 
-- level: N4
+- id: 24
+  level: N4
   type: vocabulary
   title: "Counters"
   question: "テーブルの上に本が３＿＿＿あります。"
@@ -306,7 +326,8 @@
   answer: 0
   explanation: "'冊' (さつ) is the counter for books. The sentence means 'There are 3 books on the table.'"
 
-- level: N4
+- id: 25
+  level: N4
   type: grammar
   title: "Comparison"
   question: "東京は大阪＿＿＿大きいです。"
@@ -318,7 +339,8 @@
   answer: 0
   explanation: "'より' is used for comparison, meaning 'than'. The sentence means 'Tokyo is bigger than Osaka.'"
 
-- level: N4
+- id: 26
+  level: N4
   type: vocabulary
   title: "Adverbs"
   question: "彼女は＿＿＿歌を歌います。"
@@ -330,7 +352,8 @@
   answer: 0
   explanation: "'上手に' is the adverbial form of '上手' (skilled). The sentence means 'She sings skillfully.'"
 
-- level: N4
+- id: 27
+  level: N4
   type: grammar
   title: "Expressing Experience"
   question: "富士山に登った＿＿＿がありますか。"
@@ -341,3 +364,316 @@
     - "ところ"
   answer: 0
   explanation: "'ことがある' expresses past experience. The question means 'Have you ever climbed Mt. Fuji?'"
+
+# New Grammar Questions
+- id: 28
+  level: N3
+  type: grammar
+  title: "あまり (so much... that)"
+  question: "暑さが＿＿＿外に出たくないです。"
+  options:
+    - "あまりで"
+    - "あまりに"
+    - "あまりを"
+    - "あまりの"
+  answer: 0
+  explanation: "'あまりで' means 'so much... that'. The sentence means 'It's so hot that I don't want to go outside.'"
+
+- id: 29
+  level: N3
+  type: grammar
+  title: "あまりに (so much... that, too...)"
+  question: "彼の話は＿＿＿驚きました。"
+  options:
+    - "あまりで"
+    - "あまりに"
+    - "あまりを"
+    - "あまりの"
+  answer: 1
+  explanation: "'あまりに' means 'so much... that' or 'too...'. The sentence means 'His story was so surprising (I was so surprised by his story).'"
+
+- id: 30
+  level: N3
+  type: grammar
+  title: "ば～ほど (the more... the more...)"
+  question: "日本語を勉強すれば勉強する＿＿＿、難しいことがたくさんあるとわかります。"
+  options:
+    - "ほど"
+    - "まで"
+    - "より"
+    - "よう"
+  answer: 0
+  explanation: "'ば～ほど' is a grammar pattern meaning 'the more... the more...'. The sentence means 'The more I study Japanese, the more I realize there are many difficult things.'"
+
+- id: 31
+  level: N3
+  type: grammar
+  title: "ばいい (should, it'd be good if)"
+  question: "病気なら病院に行った＿＿＿ですよ。"
+  options:
+    - "ほうがいい"
+    - "ばいい"
+    - "までいい"
+    - "といい"
+  answer: 1
+  explanation: "'ばいい' is used to suggest what someone should do. The sentence means 'If you're sick, you should go to the hospital.'"
+
+- id: 32
+  level: N3
+  type: grammar
+  title: "ばかりでなく (not only... but also)"
+  question: "彼は日本語＿＿＿英語も話せます。"
+  options:
+    - "だけでなく"
+    - "ばかりでなく"
+    - "しかなく"
+    - "としてなく"
+  answer: 1
+  explanation: "'ばかりでなく' means 'not only... but also'. The sentence means 'He can speak not only Japanese but also English.'"
+
+- id: 33
+  level: N3
+  type: grammar
+  title: "ばよかった (should have)"
+  question: "もっと早く起きれ＿＿＿。"
+  options:
+    - "ばいいです"
+    - "ばいいでした"
+    - "ばよかったです"
+    - "ばよかった"
+  answer: 3
+  explanation: "'ばよかった' expresses regret about something that didn't happen in the past. The sentence means 'I should have woken up earlier.'"
+
+- id: 34
+  level: N3
+  type: grammar
+  title: "べき (must do, should do)"
+  question: "学生は毎日宿題を＿＿＿です。"
+  options:
+    - "するべき"
+    - "するべきだ"
+    - "するべきです"
+    - "するべきである"
+  answer: 2
+  explanation: "'べきです' is the polite form of 'べき' which means 'should do' or 'must do'. The sentence means 'Students should do their homework every day.'"
+
+- id: 35
+  level: N3
+  type: grammar
+  title: "べきではない (must not do, should not do)"
+  question: "教室で携帯電話を使う＿＿＿。"
+  options:
+    - "べきではない"
+    - "べきじゃない"
+    - "べきではありません"
+    - "べきではないです"
+  answer: 2
+  explanation: "'べきではありません' is the polite form of 'べきではない' which means 'should not do' or 'must not do'. The sentence means 'You should not use mobile phones in the classroom.'"
+
+- id: 36
+  level: N3
+  type: grammar
+  title: "べつに～ない (not really, not particularly)"
+  question: "＿＿＿面白くないです。"
+  options:
+    - "べつに"
+    - "特に"
+    - "全然"
+    - "全く"
+  answer: 0
+  explanation: "'べつに～ない' means 'not really' or 'not particularly'. The sentence means 'It's not really interesting.'"
+
+- id: 37
+  level: N3
+  type: grammar
+  title: "中 (chuu/juu): during, throughout"
+  question: "授業＿＿＿寝ないでください。"
+  options:
+    - "中に"
+    - "中で"
+    - "中を"
+    - "中は"
+  answer: 0
+  explanation: "'中に' means 'during' or 'throughout'. The sentence means 'Please don't sleep during class.'"
+
+- id: 38
+  level: N3
+  type: grammar
+  title: "だけ (dake): as much as"
+  question: "できる＿＿＿手伝います。"
+  options:
+    - "だけ"
+    - "だけを"
+    - "だけに"
+    - "だけの"
+  answer: 0
+  explanation: "'だけ' can mean 'as much as'. The sentence means 'I will help as much as I can.'"
+
+- id: 39
+  level: N3
+  type: grammar
+  title: "だらけ (darake): covered all over in, full of"
+  question: "彼の服は汚れ＿＿＿です。"
+  options:
+    - "だらけ"
+    - "だらけの"
+    - "だらけに"
+    - "だらけを"
+  answer: 0
+  explanation: "'だらけ' means 'covered all over in' or 'full of'. The sentence means 'His clothes are covered in dirt.'"
+
+- id: 40
+  level: N3
+  type: grammar
+  title: "どころか (dokoro ka): far from, anything but"
+  question: "彼は日本語が上手＿＿＿、挨拶もできません。"
+  options:
+    - "どころか"
+    - "ところか"
+    - "どころで"
+    - "ところで"
+  answer: 0
+  explanation: "'どころか' means 'far from' or 'anything but'. The sentence means 'Far from being good at Japanese, he can't even say hello.'"
+
+- id: 41
+  level: N3
+  type: grammar
+  title: "どんなに～ても (donna ni ~ temo): no matter how"
+  question: "＿＿＿忙しくても、毎日日本語を勉強します。"
+  options:
+    - "どんなに"
+    - "いくら"
+    - "どうしても"
+    - "いかに"
+  answer: 0
+  explanation: "'どんなに～ても' means 'no matter how'. The sentence means 'No matter how busy I am, I study Japanese every day.'"
+
+- id: 42
+  level: N3
+  type: grammar
+  title: "ふりをする (furi o suru): to pretend, to act as if"
+  question: "彼は分かっている＿＿＿した。"
+  options:
+    - "ふりを"
+    - "ふりに"
+    - "ふりが"
+    - "ふりは"
+  answer: 0
+  explanation: "'ふりをする' means 'to pretend' or 'to act as if'. The sentence means 'He pretended to understand.'"
+
+- id: 43
+  level: N3
+  type: grammar
+  title: "ふと (futo): accidentally, unexpectedly"
+  question: "＿＿＿彼女のことを思い出しました。"
+  options:
+    - "ふと"
+    - "いきなり"
+    - "たまたま"
+    - "ついでに"
+  answer: 0
+  explanation: "'ふと' means 'accidentally' or 'unexpectedly'. The sentence means 'I suddenly remembered her.'"
+
+- id: 44
+  level: N3
+  type: grammar
+  title: "がち (gachi): apt to do, tend to do"
+  question: "彼は約束の時間に遅れる＿＿＿です。"
+  options:
+    - "がち"
+    - "よう"
+    - "ばかり"
+    - "だけ"
+  answer: 0
+  explanation: "'がち' means 'apt to do' or 'tend to do'. The sentence means 'He tends to be late for appointments.'"
+
+- id: 45
+  level: N3
+  type: grammar
+  title: "がたい (gatai): hard to, difficult to"
+  question: "この小説は理解し＿＿＿です。"
+  options:
+    - "がたい"
+    - "にくい"
+    - "ずらい"
+    - "えない"
+  answer: 0
+  explanation: "'がたい' means 'hard to' or 'difficult to'. The sentence means 'This novel is difficult to understand.'"
+
+- id: 46
+  level: N3
+  type: grammar
+  title: "ぎみ (gimi): -like, -looking"
+  question: "彼女は病気＿＿＿です。"
+  options:
+    - "ぎみ"
+    - "っぽい"
+    - "そう"
+    - "らしい"
+  answer: 0
+  explanation: "'ぎみ' is a suffix meaning '-like' or '-looking'. The sentence means 'She looks a bit sick.'"
+
+- id: 47
+  level: N3
+  type: grammar
+  title: "ほど (hodo): to the extent that, so much... that"
+  question: "浴衣を着る＿＿＿綺麗な人はいません。"
+  options:
+    - "ほど"
+    - "より"
+    - "まで"
+    - "よう"
+  answer: 0
+  explanation: "'ほど' can mean 'to the extent that' or 'so much... that'. The sentence means 'There is no one as beautiful as when she wears a kimono.'"
+
+- id: 48
+  level: N3
+  type: grammar
+  title: "ほど～ない (hodo ~ nai): is not as... as"
+  question: "京都は東京＿＿＿大きくないです。"
+  options:
+    - "ほど"
+    - "より"
+    - "まで"
+    - "よう"
+  answer: 0
+  explanation: "'ほど～ない' means 'is not as... as'. The sentence means 'Kyoto is not as big as Tokyo.'"
+
+- id: 49
+  level: N3
+  type: grammar
+  title: "いくら～ても (ikura ~ temo): no matter how"
+  question: "＿＿＿食べても太りません。"
+  options:
+    - "いくら"
+    - "どんなに"
+    - "たとえ"
+    - "いかに"
+  answer: 0
+  explanation: "'いくら～ても' means 'no matter how much/many'. The sentence means 'No matter how much I eat, I don't gain weight.'"
+
+- id: 50
+  level: N3
+  type: grammar
+  title: "一方だ (ippou da): more and more, continue to"
+  question: "彼の病気は良くなる＿＿＿。"
+  options:
+    - "一方だ"
+    - "一方で"
+    - "一方に"
+    - "一方を"
+  answer: 0
+  explanation: "'一方だ' means 'more and more' or 'continue to'. The sentence means 'His illness continues to get better.'"
+
+- id: 51
+  level: N3
+  type: grammar
+  title: "一方で (ippou de): on one hand, on the other hand"
+  question: "彼は頭がいい＿＿＿、とても怪我しています。"
+  options:
+    - "一方で"
+    - "一方だ"
+    - "一方に"
+    - "一方を"
+  answer: 0
+  explanation: "'一方で' means 'on one hand' or 'on the other hand'. The sentence means 'On one hand he's smart, on the other hand he's very selfish.'"
