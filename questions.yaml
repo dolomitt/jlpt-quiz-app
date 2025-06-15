@@ -669,7 +669,7 @@
   level: N3
   type: grammar
   title: "一方で (ippou de): on one hand, on the other hand"
-  question: "彼は頭がいい＿＿＿、とても怪我しています。"
+  question: "彼は頭がいい＿＿＿、とても怨我しています。"
   options:
     - "一方で"
     - "一方だ"
@@ -677,3 +677,588 @@
     - "一方を"
   answer: 0
   explanation: "'一方で' means 'on one hand' or 'on the other hand'. The sentence means 'On one hand he's smart, on the other hand he's very selfish.'"
+
+- id: 52
+  level: N3
+  type: grammar
+  title: "かけ (kake): half-, not yet finished"
+  question: "食事＿＿＿で電話が鳴りました。"
+  options:
+    - "かけ"
+    - "かけの"
+    - "かけに"
+    - "かけを"
+  answer: 0
+  explanation: "'かけ' means 'half-' or 'not yet finished'. The sentence means 'The phone rang while I was in the middle of eating.'"
+
+- id: 53
+  level: N3
+  type: grammar
+  title: "代わりに (kawari ni): instead of, in exchange for"
+  question: "私があなたの＿＿＿行きます。"
+  options:
+    - "代わりに"
+    - "代わりで"
+    - "代わりを"
+    - "代わりの"
+  answer: 0
+  explanation: "'代わりに' means 'instead of' or 'in exchange for'. The sentence means 'I will go instead of you.'"
+
+- id: 54
+  level: N3
+  type: grammar
+  title: "っけ (kke): what is... again?"
+  question: "彼の名前は何だ＿＿＿？"
+  options:
+    - "っけ"
+    - "っけな"
+    - "っけね"
+    - "っけよ"
+  answer: 0
+  explanation: "'っけ' is used when trying to recall information. The sentence means 'What was his name again?'"
+
+- id: 55
+  level: N3
+  type: grammar
+  title: "決して～ない (kesshite ~ nai): never, by no means"
+  question: "私は＿＿＿嘘をつかない。"
+  options:
+    - "決して"
+    - "絶対に"
+    - "全然"
+    - "全く"
+  answer: 0
+  explanation: "'決して～ない' means 'never' or 'by no means'. The sentence means 'I never tell lies.'"
+
+- id: 56
+  level: N3
+  type: grammar
+  title: "切る (kiru): to do something completely to the end"
+  question: "彼は本を読み＿＿＿ました。"
+  options:
+    - "切り"
+    - "切って"
+    - "切る"
+    - "切れ"
+  answer: 1
+  explanation: "'切る' as a suffix verb means 'to do something completely to the end'. The sentence means 'He finished reading the book completely.'"
+
+- id: 57
+  level: N3
+  type: grammar
+  title: "切れない (kirenai): being too much to finish or complete"
+  question: "仕事が多すぎて、終わらせ＿＿＿。"
+  options:
+    - "切れない"
+    - "切れる"
+    - "切れた"
+    - "切れます"
+  answer: 0
+  explanation: "'切れない' means 'cannot finish' or 'cannot complete'. The sentence means 'There's too much work, I can't finish it all.'"
+
+- id: 58
+  level: N3
+  type: grammar
+  title: "きり (kiri): only, just"
+  question: "彼は来てから文句ばかり言っている＿＿＿だ。"
+  options:
+    - "きり"
+    - "だけ"
+    - "のみ"
+    - "ばかり"
+  answer: 0
+  explanation: "'きり' means 'only' or 'just'. The sentence means 'Since he came, he's been doing nothing but complaining.'"
+
+- id: 59
+  level: N3
+  type: grammar
+  title: "こそ (koso): for sure (emphasize preceding word)"
+  question: "今日＿＿＿勉強しましょう。"
+  options:
+    - "こそ"
+    - "こそは"
+    - "こそが"
+    - "こそに"
+  answer: 0
+  explanation: "'こそ' is used to emphasize the preceding word. The sentence means 'Let's study today for sure.'"
+
+- id: 60
+  level: N3
+  type: grammar
+  title: "こと (koto): (must) do"
+  question: "来週までにレポートを提出する＿＿＿。"
+  options:
+    - "こと"
+    - "ことだ"
+    - "ことが"
+    - "ことに"
+  answer: 0
+  explanation: "'こと' can express obligation or necessity. The sentence means 'You must submit the report by next week.'"
+
+- id: 61
+  level: N3
+  type: grammar
+  title: "ことだ (koto da): should"
+  question: "時間を無駄にしない＿＿＿。"
+  options:
+    - "ことだ"
+    - "ことで"
+    - "ことに"
+    - "ことか"
+  answer: 0
+  explanation: "'ことだ' expresses advice or recommendation. The sentence means 'You should not waste time.'"
+
+- id: 62
+  level: N3
+  type: grammar
+  title: "ことがある (koto ga aru): there are times when"
+  question: "彼は遅刻する＿＿＿。"
+  options:
+    - "ことがある"
+    - "ことがいる"
+    - "ことがない"
+    - "ことがあるない"
+  answer: 0
+  explanation: "'ことがある' means 'there are times when' or 'sometimes'. The sentence means 'There are times when he is late.'"
+
+- id: 63
+  level: N3
+  type: grammar
+  title: "ことか (koto ka): how...! what...!"
+  question: "彼女は何と美しい＿＿＿。"
+  options:
+    - "ことか"
+    - "ことだ"
+    - "ことで"
+    - "ことに"
+  answer: 0
+  explanation: "'ことか' is used to express exclamation or admiration. The sentence means 'How beautiful she is!'"
+
+- id: 64
+  level: N3
+  type: grammar
+  title: "ことに (koto ni): unusually, especially"
+  question: "今日は＿＿＿暑いです。"
+  options:
+    - "ことに"
+    - "ことで"
+    - "ことか"
+    - "ことも"
+  answer: 0
+  explanation: "'ことに' means 'unusually' or 'especially'. The sentence means 'It's unusually hot today.'"
+
+- id: 65
+  level: N3
+  type: grammar
+  title: "ことはない (koto wa nai): there is no need to, never happens"
+  question: "そんなに心配する＿＿＿よ。"
+  options:
+    - "ことはない"
+    - "ことはある"
+    - "ことはいる"
+    - "ことはいい"
+  answer: 0
+  explanation: "'ことはない' means 'there is no need to' or 'never happens'. The sentence means 'There's no need to worry so much.'"
+
+- id: 66
+  level: N3
+  type: grammar
+  title: "くらい (kurai): to the extent that, so... that"
+  question: "泣きたい＿＿＿悲しかった。"
+  options:
+    - "くらい"
+    - "ほど"
+    - "ように"
+    - "として"
+  answer: 0
+  explanation: "'くらい' means 'to the extent that' or 'so... that'. The sentence means 'I was so sad that I wanted to cry.'"
+
+- id: 67
+  level: N3
+  type: grammar
+  title: "くせに (kuse ni): even though, and yet, despite"
+  question: "彼は日本語が上手な＿＿＿、日本に行ったことがない。"
+  options:
+    - "くせに"
+    - "のに"
+    - "として"
+    - "としても"
+  answer: 0
+  explanation: "'くせに' means 'even though' or 'despite' with a negative or critical nuance. The sentence means 'Even though he's good at Japanese, he has never been to Japan.'"
+
+- id: 68
+  level: N3
+  type: grammar
+  title: "まま (mama): as it is"
+  question: "窓を開けた＿＿＿寝てしまいました。"
+  options:
+    - "まま"
+    - "ように"
+    - "とおり"
+    - "として"
+  answer: 0
+  explanation: "'まま' means 'as it is' or 'leaving something in its current state'. The sentence means 'I fell asleep with the window open (left open).'"
+
+- id: 69
+  level: N3
+  type: grammar
+  title: "まるで (maru de): as if, as though"
+  question: "彼女は＿＿＿人形のように美しい。"
+  options:
+    - "まるで"
+    - "まるでの"
+    - "まるでに"
+    - "まるでか"
+  answer: 0
+  explanation: "'まるで' means 'as if' or 'as though'. The sentence means 'She is beautiful as if she were a doll.'"
+
+- id: 70
+  level: N3
+  type: grammar
+  title: "めったに～ない (metta ni ~ nai): hardly, rarely, seldom"
+  question: "彼は＿＿＿遅刻しない。"
+  options:
+    - "めったに"
+    - "決して"
+    - "全然"
+    - "全く"
+  answer: 0
+  explanation: "'めったに～ない' means 'hardly', 'rarely' or 'seldom'. The sentence means 'He is rarely late.'"
+
+- id: 71
+  level: N3
+  type: grammar
+  title: "もの (mono): because (indicate reason or excuse)"
+  question: "子供なんだからわからない＿＿＿。"
+  options:
+    - "もの"
+    - "ものだ"
+    - "ものな"
+    - "ものか"
+  answer: 0
+  explanation: "'もの' is used to give a reason or excuse. The sentence means 'Because he's a child, he doesn't understand.'"
+
+- id: 72
+  level: N3
+  type: grammar
+  title: "ものだ (mono da): used to do something, should do something"
+  question: "子供は親の言うことを聞く＿＿＿。"
+  options:
+    - "ものだ"
+    - "もので"
+    - "ものな"
+    - "ものか"
+  answer: 0
+  explanation: "'ものだ' expresses a social norm or expectation. The sentence means 'Children should listen to what their parents say.'"
+
+- id: 73
+  level: N3
+  type: grammar
+  title: "もしかしたら (moshikashitara): perhaps, maybe"
+  question: "＿＿＿明日は雨かもしれません。"
+  options:
+    - "もしかしたら"
+    - "たぶん"
+    - "おそらく"
+    - "ひょっとしたら"
+  answer: 0
+  explanation: "'もしかしたら' means 'perhaps' or 'maybe'. The sentence means 'Perhaps it might rain tomorrow.'"
+
+- id: 74
+  level: N3
+  type: grammar
+  title: "向き (muki): suitable for"
+  question: "この本は初心者＿＿＿です。"
+  options:
+    - "向き"
+    - "向け"
+    - "向きの"
+    - "向けの"
+  answer: 0
+  explanation: "'向き' means 'suitable for'. The sentence means 'This book is suitable for beginners.'"
+
+- id: 75
+  level: N3
+  type: grammar
+  title: "向け (muke): intended for, aimed at"
+  question: "これは子供＿＿＿の番組です。"
+  options:
+    - "向け"
+    - "向き"
+    - "向けに"
+    - "向きに"
+  answer: 0
+  explanation: "'向け' means 'intended for' or 'aimed at'. The sentence means 'This is a program intended for children.'"
+
+- id: 76
+  level: N3
+  type: grammar
+  title: "ながらも (nagara mo): but, although, despite"
+  question: "彼は病気＿＿＿、仕事に行きました。"
+  options:
+    - "ながらも"
+    - "ながらは"
+    - "ながらだ"
+    - "ながらで"
+  answer: 0
+  explanation: "'ながらも' means 'but', 'although', or 'despite'. The sentence means 'Although he was sick, he went to work.'"
+
+- id: 77
+  level: N3
+  type: grammar
+  title: "ないことはない (nai koto wa nai): can, is not impossible"
+  question: "この問題は解ける＿＿＿。"
+  options:
+    - "ないことはない"
+    - "ないことはある"
+    - "ないこともある"
+    - "ないこともない"
+  answer: 0
+  explanation: "'ないことはない' means 'can' or 'is not impossible'. The sentence means 'This problem can be solved (it's not impossible to solve).'"
+
+- id: 78
+  level: N3
+  type: grammar
+  title: "なんか / なんて (nanka / nante): such as, things like"
+  question: "私はスポーツ＿＿＿全然できません。"
+  options:
+    - "なんて"
+    - "なんか"
+    - "など"
+    - "なんてなど"
+  answer: 0
+  explanation: "'なんて' can be used to express 'such as' or 'things like' with a dismissive or belittling nuance. The sentence means 'I can't do sports at all.'"
+
+- id: 79
+  level: N3
+  type: grammar
+  title: "なら (nara): if, in the case of"
+  question: "暑い＿＿＿、エアコンをつけましょう。"
+  options:
+    - "なら"
+    - "ならば"
+    - "ならでは"
+    - "ならでも"
+  answer: 0
+  explanation: "'なら' means 'if' or 'in the case of'. The sentence means 'If it's hot, let's turn on the air conditioner.'"
+
+- id: 80
+  level: N3
+  type: grammar
+  title: "に違いない (ni chigai nai): must be, no doubt"
+  question: "彼はもう家に帰っている＿＿＿。"
+  options:
+    - "に違いない"
+    - "に違いなく"
+    - "に違いなくて"
+    - "に違いないで"
+  answer: 0
+  explanation: "'に違いない' means 'must be' or 'no doubt'. The sentence means 'He must have returned home already.'"
+
+- id: 81
+  level: N3
+  type: grammar
+  title: "にしては (ni shite wa): for, considering"
+  question: "子供＿＿＿、よく頭がいいですね。"
+  options:
+    - "にしては"
+    - "にしても"
+    - "にしてから"
+    - "にしてだけ"
+  answer: 0
+  explanation: "'にしては' means 'for' or 'considering'. The sentence means 'For a child, he is quite smart.'"
+
+- id: 82
+  level: N3
+  type: grammar
+  title: "にすぎない (ni suginai): nothing more than, merely"
+  question: "それは単なる噂＿＿＿。"
+  options:
+    - "にすぎない"
+    - "にすぎる"
+    - "にすぎた"
+    - "にすぎて"
+  answer: 0
+  explanation: "'にすぎない' means 'nothing more than' or 'merely'. The sentence means 'That is nothing more than a rumor.'"
+
+- id: 83
+  level: N3
+  type: grammar
+  title: "にとって (ni totte): for, to"
+  question: "彼＿＿＿、その知らせは大変なショックだった。"
+  options:
+    - "にとって"
+    - "にとっては"
+    - "にとっても"
+    - "にとってだけ"
+  answer: 0
+  explanation: "'にとって' means 'for' or 'to'. The sentence means 'For him, the news was a big shock.'"
+
+- id: 84
+  level: N3
+  type: grammar
+  title: "において (ni oite): in, at, on"
+  question: "日本＿＿＿、桜は重要な象徴です。"
+  options:
+    - "において"
+    - "においては"
+    - "においても"
+    - "においてだけ"
+  answer: 0
+  explanation: "'において' means 'in', 'at', or 'on' (formal). The sentence means 'In Japan, cherry blossoms are an important symbol.'"
+
+- id: 85
+  level: N3
+  type: grammar
+  title: "によって (ni yotte): by, through, depending on"
+  question: "結果は努力＿＿＿違ってきます。"
+  options:
+    - "によって"
+    - "によると"
+    - "による"
+    - "により"
+  answer: 0
+  explanation: "'によって' means 'by', 'through', or 'depending on'. The sentence means 'Results differ depending on effort.'"
+
+- id: 86
+  level: N3
+  type: grammar
+  title: "によると (ni yoru to): according to"
+  question: "天気予報＿＿＿、明日は雨が降るでしょう。"
+  options:
+    - "によると"
+    - "によって"
+    - "による"
+    - "により"
+  answer: 0
+  explanation: "'によると' means 'according to'. The sentence means 'According to the weather forecast, it will rain tomorrow.'"
+
+- id: 87
+  level: N3
+  type: grammar
+  title: "のに (no ni): although, despite, even though"
+  question: "時間がある＿＿＿、宿題をしませんでした。"
+  options:
+    - "のに"
+    - "ので"
+    - "のが"
+    - "のには"
+  answer: 0
+  explanation: "'のに' means 'although', 'despite', or 'even though'. The sentence means 'Even though there was time, he didn't do his homework.'"
+
+- id: 88
+  level: N3
+  type: grammar
+  title: "はず (hazu): should, supposed to"
+  question: "彼はもう到着している＿＿＿だ。"
+  options:
+    - "はず"
+    - "はずに"
+    - "はずが"
+    - "はずを"
+  answer: 0
+  explanation: "'はず' means 'should' or 'supposed to'. The sentence means 'He should have arrived by now.'"
+
+- id: 89
+  level: N3
+  type: grammar
+  title: "ほど (hodo): to the extent that, the more... the more..."
+  question: "勉強すればする＿＿＿、日本語が上手になります。"
+  options:
+    - "ほど"
+    - "ほどに"
+    - "ほどが"
+    - "ほどを"
+  answer: 0
+  explanation: "'ほど' means 'to the extent that' or 'the more... the more...'. The sentence means 'The more you study, the better your Japanese will become.'"
+
+- id: 90
+  level: N3
+  type: grammar
+  title: "ほとんど～ない (hotondo ~ nai): hardly, barely"
+  question: "彼は＿＿＿日本語を話せない。"
+  options:
+    - "ほとんど"
+    - "まったく"
+    - "全く"
+    - "全然"
+  answer: 0
+  explanation: "'ほとんど～ない' means 'hardly' or 'barely'. The sentence means 'He can hardly speak Japanese.'"
+
+- id: 91
+  level: N3
+  type: grammar
+  title: "一方 (ippou): on the other hand, meanwhile"
+  question: "私は日本語を勉強しています。＿＿＿、妹は中国語を勉強しています。"
+  options:
+    - "一方"
+    - "一方で"
+    - "一方に"
+    - "一方を"
+  answer: 0
+  explanation: "'一方' means 'on the other hand' or 'meanwhile'. The sentence means 'I am studying Japanese. Meanwhile, my sister is studying Chinese.'"
+
+- id: 92
+  level: N3
+  type: grammar
+  title: "一方で (ippou de): on one hand, while"
+  question: "彼は優しい人です。＿＿＿、少し厳しい面もあります。"
+  options:
+    - "一方で"
+    - "一方"
+    - "一方に"
+    - "一方を"
+  answer: 0
+  explanation: "'一方で' means 'on one hand' or 'while'. The sentence means 'He is a kind person. On the other hand, he can also be a bit strict.'"
+
+- id: 93
+  level: N3
+  type: grammar
+  title: "以上 (ijou): more than, since, as long as"
+  question: "あなたが行く＿＿＿、私も行きます。"
+  options:
+    - "以上"
+    - "以上は"
+    - "以上に"
+    - "以上を"
+  answer: 0
+  explanation: "'以上' can mean 'more than', 'since', or 'as long as'. The sentence means 'As long as you go, I will go too.'"
+
+- id: 94
+  level: N3
+  type: grammar
+  title: "以下 (ika): less than, below, under"
+  question: "このプールは深さ　1メートル＿＿＿です。"
+  options:
+    - "以下"
+    - "以上"
+    - "以外"
+    - "以内"
+  answer: 0
+  explanation: "'以下' means 'less than', 'below', or 'under'. The sentence means 'This pool is less than 1 meter deep.'"
+
+- id: 95
+  level: N3
+  type: grammar
+  title: "以内 (inai): within, inside, less than"
+  question: "レポートは一週間＿＿＿に提出してください。"
+  options:
+    - "以内"
+    - "以上"
+    - "以下"
+    - "以外"
+  answer: 0
+  explanation: "'以内' means 'within' or 'inside'. The sentence means 'Please submit the report within one week.'"
+
+- id: 96
+  level: N3
+  type: grammar
+  title: "以外 (igai): except for, other than"
+  question: "彼＿＿＿は全員参加しました。"
+  options:
+    - "以外"
+    - "以上"
+    - "以下"
+    - "以内"
+  answer: 0
+  explanation: "'以外' means 'except for' or 'other than'. The sentence means 'Everyone except for him participated.'"
