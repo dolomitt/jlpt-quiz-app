@@ -542,8 +542,10 @@ function showResults() {
     
     // Add to history and save
     quizHistory.unshift(quizRecord);
-    if (quizHistory.length > MAX_HISTORY_ITEMS) {
-        quizHistory = quizHistory.slice(0, MAX_HISTORY_ITEMS);
+    // Allow storing more items in localStorage than we display
+    const MAX_STORED_HISTORY = 50;
+    if (quizHistory.length > MAX_STORED_HISTORY) {
+        quizHistory = quizHistory.slice(0, MAX_STORED_HISTORY);
     }
     saveQuizHistory();
     
@@ -593,45 +595,28 @@ function resetQuiz() {
     updateHistoryDisplay();
 }
 
-// Save quiz history to server and localStorage
+// Save quiz history to localStorage
 function saveQuizHistory() {
-    // Save to localStorage as backup
+    // Save to localStorage
     localStorage.setItem('jlptQuizHistory', JSON.stringify(quizHistory));
-    
-    // Save to server
-    fetch('/api/history', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(quizHistory[0]) // Send only the latest quiz record
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Quiz history saved to server:', data);
-    })
-    .catch(error => {
-        console.error('Error saving quiz history to server:', error);
-    });
+    console.log('Quiz history saved to localStorage');
 }
 
-// Load quiz history from server
+// Load quiz history from localStorage
 function loadQuizHistory() {
-    fetch('/api/history')
-        .then(response => response.json())
-        .then(data => {
-            quizHistory = data;
-            updateHistoryDisplay();
-        })
-        .catch(error => {
-            console.error('Error loading quiz history:', error);
-            // Fallback to localStorage if server request fails
-            const savedHistory = localStorage.getItem('jlptQuizHistory');
-            if (savedHistory) {
-                quizHistory = JSON.parse(savedHistory);
-                updateHistoryDisplay();
-            }
-        });
+    const savedHistory = localStorage.getItem('jlptQuizHistory');
+    if (savedHistory) {
+        try {
+            quizHistory = JSON.parse(savedHistory);
+            console.log('Quiz history loaded from localStorage');
+        } catch (error) {
+            console.error('Error parsing quiz history from localStorage:', error);
+            quizHistory = [];
+        }
+    } else {
+        quizHistory = [];
+    }
+    updateHistoryDisplay();
 }
 
 // Clear quiz history
@@ -642,18 +627,7 @@ function clearQuizHistory() {
         
         // Clear localStorage
         localStorage.removeItem('jlptQuizHistory');
-        
-        // Clear server-side history
-        fetch('/api/history/clear', {
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Server history cleared:', data);
-        })
-        .catch(error => {
-            console.error('Error clearing server history:', error);
-        });
+        console.log('Quiz history cleared from localStorage');
         
         // Update the display
         updateHistoryDisplay();
