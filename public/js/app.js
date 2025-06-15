@@ -78,7 +78,7 @@ function fetchVersionInfo() {
     fetch('/api/version')
         .then(response => response.json())
         .then(data => {
-            console.log('Version data received:', data);
+
             const versionElement = document.getElementById('version-number');
             if (versionElement) {
                 // Make sure we have valid data
@@ -113,7 +113,7 @@ function fetchVersionInfo() {
                     commitElement.style.display = 'none';
                 }
                 
-                console.log('Displaying version:', displayVersion, 'Commit:', gitCommit);
+
                 
                 // Add build date as tooltip if available
                 if (data.buildDate) {
@@ -242,15 +242,7 @@ async function startQuiz() {
             .then(data => {
                 questions = data;
                 
-                // Debug: Log all questions and their answers
-                console.log('DEBUG: All questions loaded:', questions);
-                questions.forEach((q, i) => {
-                    console.log(`DEBUG: Question ${i+1}:`, q.question);
-                    console.log(`DEBUG: Options:`, q.options);
-                    console.log(`DEBUG: Correct answer index:`, q.answer);
-                    console.log(`DEBUG: Correct answer:`, q.options[q.answer]);
-                    console.log('---');
-                });
+
                 
                 // Update total questions count
                 totalQuestionsEl.textContent = questions.length;
@@ -361,10 +353,7 @@ function showQuestion() {
         return;
     }
     
-    // Debug: log current question and answer index
-    console.log('DEBUG: Question:', currentQuestion.question);
-    console.log('DEBUG: Options:', currentQuestion.options);
-    console.log('DEBUG: Correct answer index:', currentQuestion.answer, 'Correct answer value:', currentQuestion.options[currentQuestion.answer]);
+
 
     // Update progress
     updateProgressBar();
@@ -436,12 +425,6 @@ function selectAnswer(e) {
         isCorrect: selectedAnswer === currentQuestion.answer
     });
 
-    // Debug logging
-    console.log('DEBUG: Selected answer index:', selectedAnswer);
-    console.log('DEBUG: Selected answer text:', selectedButton.textContent);
-    console.log('DEBUG: Correct answer index from backend:', currentQuestion.answer);
-    console.log('DEBUG: Correct answer text:', currentQuestion.options[currentQuestion.answer]);
-    
     // Disable all options
     const optionButtons = document.querySelectorAll('.option-btn');
     optionButtons.forEach(button => {
@@ -460,14 +443,14 @@ function selectAnswer(e) {
         currentScoreEl.textContent = score;
     } else {
         // Force the incorrect class to be applied
-        console.log('Marking as incorrect:', selectedButton);
+
         selectedButton.classList.add('incorrect');
         
         // Show correct answer - make sure we're highlighting the right one
         const correctButton = optionButtons[currentQuestion.answer];
         if (correctButton) {
             correctButton.classList.add('correct');
-            console.log('DEBUG: Highlighting as correct:', correctButton.textContent);
+
         } else {
             console.error('Could not find correct button at index:', currentQuestion.answer);
         }
@@ -599,7 +582,7 @@ function resetQuiz() {
 function saveQuizHistory() {
     // Save to localStorage
     localStorage.setItem('jlptQuizHistory', JSON.stringify(quizHistory));
-    console.log('Quiz history saved to localStorage');
+
 }
 
 // Load quiz history from localStorage
@@ -608,7 +591,7 @@ function loadQuizHistory() {
     if (savedHistory) {
         try {
             quizHistory = JSON.parse(savedHistory);
-            console.log('Quiz history loaded from localStorage');
+
         } catch (error) {
             console.error('Error parsing quiz history from localStorage:', error);
             quizHistory = [];
@@ -627,7 +610,7 @@ function clearQuizHistory() {
         
         // Clear localStorage
         localStorage.removeItem('jlptQuizHistory');
-        console.log('Quiz history cleared from localStorage');
+
         
         // Update the display
         updateHistoryDisplay();
