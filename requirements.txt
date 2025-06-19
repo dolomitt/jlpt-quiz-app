@@ -50,16 +50,10 @@ The JLPT Quiz App is an interactive web application designed to help users pract
 - [ ] User authentication system
 - [ ] Persistent user progress tracking
 - [ ] Detailed statistics on user performance
-- [ ] Additional question types (listening, kanji)
-- [ ] Spaced repetition system for personalized learning
 - [ ] Explanation content for incorrect answers
-- [ ] Downloadable quiz results
 - [ ] Admin interface for question management
 - [ ] User-contributed questions with moderation
-- [ ] API documentation
 - [ ] Continuous integration with automated tests
-- [ ] Performance benchmarking and optimization
-- [ ] Cross-browser compatibility testing
 
 ## Technical Requirements
 - Node.js runtime environment
