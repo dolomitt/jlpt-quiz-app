@@ -1,0 +1,32 @@
+[build]
+  command = "npm test && npm start"
+  publish = "public"
+  functions = "functions"
+
+[dev]
+  command = "npm run dev"
+  port = 3000
+  targetPort = 3000
+  publish = "public"
+  autoLaunch = true
+
+[context.production]
+  command = "npm test && npm start"
+
+[context.deploy-preview]
+  command = "npm test && npm start"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Redirect API requests to the server
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+
+# Redirect all other requests to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
