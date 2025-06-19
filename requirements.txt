@@ -1,0 +1,93 @@
+# JLPT Quiz App Requirements
+
+## Overview
+The JLPT Quiz App is an interactive web application designed to help users practice for the Japanese Language Proficiency Test (JLPT). The app provides quizzes with questions from different JLPT levels (N1-N5) and question types (grammar, vocabulary, reading).
+
+## Core Features
+
+### Backend Features
+- [x] Express.js server with RESTful API endpoints
+- [x] YAML-based question database with structured format
+- [x] API endpoint for retrieving filtered questions (/api/questions)
+- [x] API endpoint for checking answers (/api/check-answer)
+- [x] API endpoint for version information (/api/version)
+- [x] Git commit version display in UI
+- [x] Markdown support for question content
+- [x] Port configuration (currently using 3001)
+
+### Frontend Features
+- [x] Responsive web interface with mobile support
+- [x] Dark/light theme toggle
+- [x] Home screen with quiz configuration options
+- [x] JLPT level selection (N1-N5 or All)
+- [x] Question type selection (Grammar, Vocabulary, Reading, or All)
+- [x] Quiz length selection (5, 10, 20, or 50 questions)
+- [x] Interactive quiz interface with progress tracking
+- [x] Score display during quiz
+- [x] Results screen with performance summary
+- [x] Quiz history tracking with local storage
+- [x] Version information display in footer
+- [x] Home button for navigation
+- [x] Error handling for API requests
+
+### Question Features
+- [x] Support for multiple JLPT levels (N1-N5)
+- [x] Support for multiple question types (Grammar, Vocabulary, Reading)
+- [x] Question title support
+- [x] Multiple-choice options with letter prefixes (A, B, C, D)
+- [x] Markdown rendering for question content
+- [x] Option shuffling for randomized quiz experience
+
+### Testing Features
+- [x] Automated testing with Selenium WebDriver
+- [x] End-to-end test suite for core functionality
+- [x] Test utilities for common testing operations
+- [x] Screenshot capability for test debugging
+- [x] Support for headless browser testing
+- [x] Mocha and Chai for test assertions
+
+## Planned Features
+- [ ] User authentication system
+- [ ] Persistent user progress tracking
+- [ ] Detailed statistics on user performance
+- [ ] Additional question types (listening, kanji)
+- [ ] Spaced repetition system for personalized learning
+- [ ] Explanation content for incorrect answers
+- [ ] Downloadable quiz results
+- [ ] Admin interface for question management
+- [ ] User-contributed questions with moderation
+- [ ] API documentation
+- [ ] Continuous integration with automated tests
+- [ ] Performance benchmarking and optimization
+- [ ] Cross-browser compatibility testing
+
+## Technical Requirements
+- Node.js runtime environment
+- Express.js for server framework
+- js-yaml for YAML parsing
+- marked for Markdown rendering
+- Local storage for client-side data persistence
+- Git for version control and commit tracking
+- Selenium WebDriver for automated testing
+- Mocha and Chai for test framework and assertions
+- ChromeDriver for browser automation
+
+## Dependencies
+- express: Web server framework
+- js-yaml: YAML parsing library
+- body-parser: Request body parsing middleware
+- marked: Markdown parsing library
+- child_process: For git commit version retrieval
+- selenium-webdriver: Browser automation for testing
+- mocha: JavaScript test framework
+- chai: Assertion library for testing
+- chromedriver: Chrome browser driver for Selenium
+
+## Development Guidelines
+- Maintain consistent code style and documentation
+- Follow RESTful API design principles
+- Ensure responsive design for all screen sizes
+- Implement proper error handling
+- Write clean, maintainable code with comments
+- Test on multiple browsers and devices
+- Write automated tests for new features
