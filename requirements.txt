@@ -13,7 +13,7 @@ The JLPT Quiz App is an interactive web application designed to help users pract
 - [x] API endpoint for version information (/api/version)
 - [x] Git commit version display in UI
 - [x] Markdown support for question content
-- [x] Port configuration (currently using 3001)
+- [x] Port configuration (currently using 3000)
 
 ### Frontend Features
 - [x] Responsive web interface with mobile support
